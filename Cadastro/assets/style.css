@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #293740;
+}
+
+.stars {
+    position: absolute;
+    width: 95.729vw;
+    height: 40.241vw;
+    left: -8.24vw;
+    top: 6.204vw;
+}
+
+.area-nav {
+    width: 100%;
+}
+
+.container-form {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    justify-content: space-between;
+    height: 60%;
+}
+
+.container-form .area-desc .alien-01 {
+    position: absolute;
+    width: 2.984vw;
+    height: 2.833vw;
+    left: 42.28vw;
+    top: 18.906vw;
+
+}
+
+.alien-02 {
+    position: absolute;
+    width: 4.015vw;
+    height: 6.163vh;
+    left: 7.656vw;
+    top: 75.426vh;
+}
+
+.alien-03 {
+    position: absolute;
+    width: 45.74px;
+    height: 42.91px;
+    left: 45.49vw;
+    /* 875.63px em relação a 1920px de largura */
+    top: 67.84vh;
+    ;
+    /* 802.93px em relação a 1920px de largura */
+
+}
+
+.alien-04 {
+    position: absolute;
+    width: 2.384vw; /* 45.74px em relação a 1920px de largura */
+    height: 2.233vw; /* 42.91px em relação a 1920px de largura */
+    left: 80.21vw; /* 1540.24px em relação a 1920px de largura */
+    top: 4.427vw; /* 85px em relação a 1920px de largura */
+
+}
+
+.container-form .area-desc .box-desc {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-form .area-desc .box-desc h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3.300vw;
+    line-height: 2.563vw;
+    color: #F2F2F2;
+}
+
+.container-form .area-desc .box-desc h2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8vw;
+    line-height: 2.813vw;
+    width: 37vw;
+    color: #81A687;
+}
+
+.container-form .area-desc .box-desc p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.1vw;
+    color: #F2F2F2;
+}
+
+.container-form .area-desc .box-desc a {
+    text-decoration: none;
+    color: #81A687;
+}
+
+.container-form .area-desc .box-desc .alien {
+    position: absolute;
+    width: 2.384vw;
+    height: 2.233vw;
+    left: 4.292000000000002vw;
+    top: 14.018vw;
+}
+
+
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+}
+
+/* Collab */
