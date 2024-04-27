@@ -16,6 +16,7 @@ body {
     height: 40.241vw;
     left: -8.24vw;
     top: 6.204vw;
+    z-index: -1;
 }
 
 .area-nav {
@@ -61,10 +62,14 @@ body {
 
 .alien-04 {
     position: absolute;
-    width: 2.384vw; /* 45.74px em relação a 1920px de largura */
-    height: 2.233vw; /* 42.91px em relação a 1920px de largura */
-    left: 80.21vw; /* 1540.24px em relação a 1920px de largura */
-    top: 4.427vw; /* 85px em relação a 1920px de largura */
+    width: 2.384vw;
+    /* 45.74px em relação a 1920px de largura */
+    height: 2.233vw;
+    /* 42.91px em relação a 1920px de largura */
+    left: 80.21vw;
+    /* 1540.24px em relação a 1920px de largura */
+    top: 4.427vw;
+    /* 85px em relação a 1920px de largura */
 
 }
 
@@ -101,7 +106,7 @@ body {
     color: #81A687;
 }
 
-.container-form .area-desc .box-desc .alien {
+.container-form .area-desc .box-desc .alien-00 {
     position: absolute;
     width: 2.384vw;
     height: 2.233vw;
@@ -110,13 +115,96 @@ body {
 }
 
 
+.area-form {
+    position: absolute;
+    width: 29.48vw;
+    height: 75.15vh;
+    left: 60.68vw;
+    top: 19.07vh;
+    font-family: "Poppins", sans-serif;
+}
 
+.titulo-form {
+    color: #F2F2F2;
+    font-weight: 500;
+    font-size: 2.5vw;
+    line-height: 0;
+}
 
 .form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: space-around;
+    justify-content: space-around;
+    height: 64%;
+    width: 85%;
+
 }
 
-/* Collab */
+.form small {
+    color: #F2F2F2;
+    line-height: 7vh;
+}
+
+.box-email {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.box-senha {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.area-esqueci {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    text-align: end;
+}
+
+.area-esqueci small {
+    font-size: 10px;
+}
+
+.input-form {
+    border: none;
+    border-bottom: 1px solid #81A687;
+    outline: none;
+    background-color: transparent;
+    color: #F2F2F2;
+}
+
+.input-form::placeholder {
+    color: #81A687;
+    font-size: small
+}
+
+.area-button{
+    margin-top: -3.2vh;
+}
+
+.area-form button {
+
+    background-color: #81A687;
+    color: #F2F2F2;
+    border: none;
+    width: 10.5vw;
+    height: 4.6vh;
+    background: #81A687;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.area-form button:hover{
+    background-color: #537559;
+    color: #FFFFFF; 
+}
+
+.area-form button:active {
+    background-color: #81A687;
+    color: #FFFFFF; 
+}
