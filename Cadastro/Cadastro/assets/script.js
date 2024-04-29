@@ -77,10 +77,3 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 if (document.documentElement.getAttribute("data-theme") == "light") {
     toggleSwitch.checked = true;
 }
-
-
-const cadButton = document.getElementById('button_form');
-
-cadButton.addEventListener('click', ()=>{
-    window.location.href = '../../home/index.html'
-})

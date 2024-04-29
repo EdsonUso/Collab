@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #293740;
+    background-color: var(--bg-color);
 }
 
 .stars {
@@ -19,8 +16,17 @@ body {
     z-index: -1;
 }
 
+.stars circle{
+    fill: var(--drawn);
+}
+
 .area-nav {
-    width: 100%;
+    width: 95%;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
 }
 
 .container-form {
@@ -37,7 +43,16 @@ body {
     height: 2.833vw;
     left: 42.28vw;
     top: 18.906vw;
+    stroke: var(--drawn);
 
+}
+
+.alien-01 path{
+    stroke: var(--drawn);
+}
+.alien-01 circle{
+    fill: var(--drawn);
+    stroke: var(--drawn);
 }
 
 .alien-02 {
@@ -46,6 +61,25 @@ body {
     height: 6.163vh;
     left: 7.656vw;
     top: 75.426vh;
+    stroke: var(--drawn);
+}
+
+.alien-02 path{
+    stroke: var(--drawn);
+}
+
+.alien-02 circle{
+    fill: var(--drawn);
+    stroke: var(--drawn);
+}
+
+.alien-00 path{
+    stroke: var(--drawn);
+}
+
+.alien-00 circle{
+    fill: var(--drawn);
+    stroke: var(--drawn);
 }
 
 .alien-03 {
@@ -56,8 +90,18 @@ body {
     /* 875.63px em relação a 1920px de largura */
     top: 67.84vh;
     ;
+    stroke: var(--drawn);
     /* 802.93px em relação a 1920px de largura */
+    
+}
 
+.alien-03 path{
+    stroke: var(--drawn);
+}
+
+.alien-03 circle{
+    fill: var(--drawn);
+    stroke: var(--drawn);
 }
 
 .alien-04 {
@@ -70,7 +114,17 @@ body {
     /* 1540.24px em relação a 1920px de largura */
     top: 4.427vw;
     /* 85px em relação a 1920px de largura */
+    stroke: var(--drawn);
 
+}
+
+.alien-04 path{
+    stroke: var(--drawn);
+}
+
+.alien-04 circle{
+    fill: var(--drawn);
+    stroke: var(--drawn);
 }
 
 .container-form .area-desc .box-desc {
@@ -82,7 +136,7 @@ body {
     font-weight: 500;
     font-size: 3.300vw;
     line-height: 2.563vw;
-    color: #F2F2F2;
+    color: var(--font-title-color)
 }
 
 .container-form .area-desc .box-desc h2 {
@@ -91,19 +145,19 @@ body {
     font-size: 1.8vw;
     line-height: 2.813vw;
     width: 37vw;
-    color: #81A687;
+    color: var(--font-detail-color)
 }
 
 .container-form .area-desc .box-desc p {
     font-style: normal;
     font-weight: 300;
     font-size: 1.1vw;
-    color: #F2F2F2;
+    color: var(--font-title-color)
 }
 
 .container-form .area-desc .box-desc a {
     text-decoration: none;
-    color: #81A687;
+    color: var(--link-color)
 }
 
 .container-form .area-desc .box-desc .alien-00 {
@@ -112,6 +166,7 @@ body {
     height: 2.233vw;
     left: 4.292000000000002vw;
     top: 14.018vw;
+    color: var(--drawn);
 }
 
 
@@ -125,7 +180,7 @@ body {
 }
 
 .titulo-form {
-    color: #F2F2F2;
+    color: var(--font-title-color);
     font-weight: 500;
     font-size: 2.5vw;
     line-height: 0;
@@ -141,7 +196,7 @@ body {
 }
 
 .form small {
-    color: #F2F2F2;
+   color: var(--font-title-color);
     line-height: 7vh;
 }
 
@@ -166,14 +221,14 @@ body {
 
 .input-form {
     border: none;
-    border-bottom: 1px solid #81A687;
+    border-bottom: 1px solid var(--elements);
     outline: none;
     background-color: transparent;
-    color: #F2F2F2;
+    color: var(--elements);
 }
 
 .input-form::placeholder {
-    color: #81A687;
+    color: var(--font-title-color);
     font-size: small
 }
 
@@ -186,13 +241,13 @@ body {
 }
 
 .area-form p{
-    color: #81A687;
+    color: var(--font-detail-color);
     margin: 0;
 }
 
 .area-form button {
 
-    background-color: #81A687;
+    background-color: var(--elements);
     color: #F2F2F2;
     border: none;
     width: 10.5vw;

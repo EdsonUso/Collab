@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Tema dark(padrão)*/
+:root{
+    --font-title-color : #F2F2F2;
+    --font-detail-color: #81A687;
+    --link-color: #81A687;
+    --bg-color: #293740;
+    --elements: #81A687;
+    --drawn: #F2F2F2;
+}
+
+/*tema claro*/
+[data-theme = "light"]{
+    --font-title-color : #293740;
+    --font-detail-color: #325952;
+    --link-color: #325952;
+    --bg-color: #F2F2F2;
+    --elements: #325952;
+    --drawn: #293740;
+}
