@@ -145,17 +145,13 @@ body {
     line-height: 7vh;
 }
 
-.box-email {
+.box-input {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.box-senha {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
+
 
 .area-esqueci {
     width: 100%;
@@ -185,6 +181,15 @@ body {
     margin-top: -3.2vh;
 }
 
+.area-button-cad{
+    margin-top: 2.4vh;
+}
+
+.area-form p{
+    color: #81A687;
+    margin: 0;
+}
+
 .area-form button {
 
     background-color: #81A687;
@@ -192,7 +197,6 @@ body {
     border: none;
     width: 10.5vw;
     height: 4.6vh;
-    background: #81A687;
     border-radius: 6px;
     transition: background-color 0.3s, color 0.3s;
 }

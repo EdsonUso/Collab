@@ -4,10 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../Login/favicon.png" type="image/png">
     <title>Collab | Cadastre-se</title>
 </head>
 <body>
-    
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collab | Login</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="icon" href="../Login/favicon.png" type="image/png">
+    <meta name="theme-color" content="#52616B">
+</head>
+
+<body>
+    <svg class="alien-04"  width="58" height="56" viewBox="0 0 58 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M8.58861 29.1712C9.73324 28.3997 12.3813 25.7509 13.8163 21.3272C15.6101 15.7977 38.6739 1.21879 45.8965 29.4983C48.28 35.9357 42.8853 34.1857 46.4128 49.0435C45.0565 53.2244 44.167 54.1283 34.9415 49.943C25.7159 45.7578 32.6636 45.4776 27.7935 47.6242C22.9235 49.7709 21.466 41.3979 15.3858 43.5991C9.30553 45.8003 -5.9525 38.6147 8.58861 29.1712Z"
+            stroke="#F2F2F2" stroke-width="5" />
+        <circle cx="24.3981" cy="21.3317" r="0.992501" transform="rotate(17.9732 24.3981 21.3317)" fill="#D9D9D9" />
+        <circle cx="38.1545" cy="25.7943" r="0.992501" transform="rotate(17.9732 38.1545 25.7943)" fill="#D9D9D9" />
+        <circle cx="24.8074" cy="5.3661" r="1.84322" transform="rotate(17.9732 24.8074 5.3661)" fill="#F2F2F2" />
+        <circle cx="46.6631" cy="13.3505" r="1.84322" transform="rotate(17.9732 46.6631 13.3505)" fill="#F2F2F2" />
+        <rect x="26.6832" y="26.6938" width="5.95501" height="1.13429" rx="0.567143"
+            transform="rotate(17.9732 26.6832 26.6938)" fill="#D9D9D9" />
+        <path d="M23.9144 5.82166L24.5591 13.4838" stroke="#F2F2F2" stroke-width="5" />
+        <path d="M25.7551 6.12061L27.0159 12.3429" stroke="#F2F2F2" stroke-width="5" />
+        <path d="M45.5441 13.5837L40.0105 16.8566" stroke="#F2F2F2" stroke-width="5" />
+        <path d="M41.6907 19.4885L46.1345 14.5205" stroke="#F2F2F2" stroke-width="5" />
+    </svg>
+
+
+    <div class="area-nav">
+        <ul class="nav">
+            <div class="area-logo">
+                <svg width="64" height="47" viewBox="0 0 114 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M21.5 35.5L9 9C28.6 36.2 60.8333 44 74.5 44.5C76.1667 47.1667 81.4 52 89 50C96.6 48 99.8333 66.5 100.5 76C91.8333 72.3333 74.5 60.9 74.5 44.5C61.8333 48.1667 36.5 53.3 36.5 44.5C36.5 35.7 26.5 34.8333 21.5 35.5Z"
+                        fill="#F2F2F2" />
+                    <path
+                        d="M74.5 44.5C61.8333 48.1667 36.5 53.3 36.5 44.5C36.5 35.7 26.5 34.8333 21.5 35.5L9 9C28.6 36.2 60.8333 44 74.5 44.5ZM74.5 44.5C76.1667 47.1667 81.4 52 89 50C96.6 48 99.8333 66.5 100.5 76C91.8333 72.3333 74.5 60.9 74.5 44.5Z"
+                        stroke="#325952" stroke-width="3" />
+                    <path
+                        d="M37.5 44C37.5 49.4076 32.6953 54 26.5 54C20.3047 54 15.5 49.4076 15.5 44C15.5 38.5924 20.3047 34 26.5 34C32.6953 34 37.5 38.5924 37.5 44Z"
+                        stroke="#F2F2F2" stroke-width="3" />
+                    <path
+                        d="M16.5 8.5C16.5 12.2864 13.2241 15.5 9 15.5C4.77593 15.5 1.5 12.2864 1.5 8.5C1.5 4.71363 4.77593 1.5 9 1.5C13.2241 1.5 16.5 4.71363 16.5 8.5Z"
+                        fill="#325952" stroke="#325952" stroke-width="3" />
+                    <path
+                        d="M112.5 75.261C112.5 80.6685 107.695 85.261 101.5 85.261C95.3047 85.261 90.5 80.6685 90.5 75.261C90.5 69.8534 95.3047 65.261 101.5 65.261C107.695 65.261 112.5 69.8534 112.5 75.261Z"
+                        fill="#F2F2F2" stroke="#F2F2F2" stroke-width="3" />
+                    <path
+                        d="M95.5 41C95.5 46.4076 90.6953 51 84.5 51C78.3047 51 73.5 46.4076 73.5 41C73.5 35.5924 78.3047 31 84.5 31C90.6953 31 95.5 35.5924 95.5 41Z"
+                        stroke="#325952" stroke-width="3" />
+                </svg>
+            </div>
+        </ul>
+    </div>
+
+
+    <div class="container-form">
+        <svg class="alien-02"  width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M30.6067 67.8151C30.4548 65.9579 29.0861 61.0906 24.8268 56.4785C19.5026 50.7134 17.5789 13.9303 55.6415 24.1124C64.7944 25.56 59.17 30.7543 78.9911 36.4185C83.0167 40.7775 83.4932 42.4218 72.4708 50.5168C61.4485 58.6118 65.7091 50.248 65.0184 57.3993C64.3277 64.5506 53.5081 60.7342 52.0821 69.3462C50.6561 77.9582 32.116 91.1723 30.6067 67.8151Z"
+                stroke="#F2F2F2" stroke-width="5" />
+            <circle cx="31.8235" cy="44.0245" r="1.33981" transform="rotate(-42.7231 31.8235 44.0245)" fill="#D9D9D9" />
+            <circle cx="46.1659" cy="30.779" r="1.33981" transform="rotate(-42.7231 46.1659 30.779)" fill="#D9D9D9" />
+            <circle cx="13.2993" cy="32.9939" r="2.48823" transform="rotate(-42.7231 13.2993 32.9939)" fill="#F2F2F2" />
+            <circle cx="37.1388" cy="12.5408" r="2.48823" transform="rotate(-42.7231 37.1388 12.5408)" fill="#F2F2F2" />
+            <rect x="39.6456" y="44.8773" width="8.03889" height="1.53122" rx="0.765608"
+                transform="rotate(-42.7231 39.6456 44.8773)" fill="#D9D9D9" />
+            <path d="M13.2455 34.3462L22.6913 38.6498" stroke="#F2F2F2" stroke-width="5" />
+            <path d="M14.8138 32.3768L22.9717 35.0038" stroke="#F2F2F2" stroke-width="5" />
+            <path d="M36.6739 14.0123L36.8707 22.6888" stroke="#F2F2F2" stroke-width="5" />
+            <path d="M41.0792 22.4498L38.1669 13.9362" stroke="#F2F2F2" stroke-width="5" />
+        </svg>
+        <svg class="alien-03"  width="60" height="57" viewBox="0 0 60 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M13.946 42.495C14.3824 41.1855 14.8647 37.4712 13.3033 33.0906C11.3515 27.6148 20.7332 1.99324 43.7076 19.9953C49.5232 23.6422 44.181 25.5464 56.0398 35.1676C57.5155 39.3079 57.3621 40.5667 47.4989 42.8782C37.6356 45.1897 42.9699 40.7295 40.4205 45.4013C37.871 50.0731 31.6084 44.3276 28.1334 49.781C24.6583 55.2343 8.18474 58.8484 13.946 42.495Z"
+                stroke="#F2F2F2" stroke-width="5" />
+            <circle cx="21.6909" cy="26.6389" r="0.992501" transform="rotate(-19.6183 21.6909 26.6389)"
+                fill="#D9D9D9" />
+            <circle cx="35.3135" cy="21.7832" r="0.992501" transform="rotate(-19.6183 35.3135 21.7832)"
+                fill="#D9D9D9" />
+            <circle cx="12.2757" cy="13.7383" r="1.84322" transform="rotate(-19.6183 12.2757 13.7383)" fill="#F2F2F2" />
+            <circle cx="34.4645" cy="6.73247" r="1.84322" transform="rotate(-19.6183 34.4645 6.73247)" fill="#F2F2F2" />
+            <rect x="26.7726" y="29.4938" width="5.95501" height="1.13429" rx="0.567143"
+                transform="rotate(-19.6183 26.7726 29.4938)" fill="#D9D9D9" />
+            <path d="M11.8461 14.6441L17.031 20.3222" stroke="#F2F2F2" stroke-width="5" />
+            <path d="M13.487 13.7581L18.2818 17.9195" stroke="#F2F2F2" stroke-width="5" />
+            <path d="M33.72 7.59987L31.3319 13.5689" stroke="#F2F2F2" stroke-width="5" />
+            <path d="M34.2688 14.6294L34.7594 7.98204" stroke="#F2F2F2" stroke-width="5" />
+        </svg>
+
+
+        <div class="area-desc">
+            <svg class="alien-01"  width="58" height="56" viewBox="0 0 58 56" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M8.58843 29.1712C9.73306 28.3997 12.3811 25.7509 13.8161 21.3272C15.6099 15.7977 38.6737 1.21879 45.8964 29.4983C48.2798 35.9357 42.8851 34.1857 46.4126 49.0435C45.0563 53.2244 44.1668 54.1283 34.9413 49.943C25.7157 45.7578 32.6634 45.4776 27.7933 47.6242C22.9233 49.7709 21.4658 41.3979 15.3856 43.5991C9.30534 45.8003 -5.95268 38.6147 8.58843 29.1712Z"
+                    stroke="#F2F2F2" stroke-width="5" />
+                <circle cx="24.3979" cy="21.3317" r="0.992501" transform="rotate(17.9732 24.3979 21.3317)"
+                    fill="#D9D9D9" />
+                <circle cx="38.1544" cy="25.7943" r="0.992501" transform="rotate(17.9732 38.1544 25.7943)"
+                    fill="#D9D9D9" />
+                <circle cx="24.8073" cy="5.3661" r="1.84322" transform="rotate(17.9732 24.8073 5.3661)"
+                    fill="#F2F2F2" />
+                <circle cx="46.663" cy="13.3505" r="1.84322" transform="rotate(17.9732 46.663 13.3505)"
+                    fill="#F2F2F2" />
+                <rect x="26.6831" y="26.6938" width="5.95501" height="1.13429" rx="0.567143"
+                    transform="rotate(17.9732 26.6831 26.6938)" fill="#D9D9D9" />
+                <path d="M23.9142 5.82166L24.5589 13.4838" stroke="#F2F2F2" stroke-width="5" />
+                <path d="M25.755 6.12061L27.0158 12.3429" stroke="#F2F2F2" stroke-width="5" />
+                <path d="M45.5439 13.5837L40.0104 16.8566" stroke="#F2F2F2" stroke-width="5" />
+                <path d="M41.6906 19.4885L46.1344 14.5205" stroke="#F2F2F2" stroke-width="5" />
+            </svg>
+
+            <div class="box-desc">
+                <svg class="alien-00" width="63" height="62" viewBox="0 0 63 62" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20.143 48.514C20.2003 47.1349 19.6368 43.432 16.9249 39.654C13.5351 34.9314 15.4664 7.71464 42.5227 18.6621C49.1201 20.5587 44.5127 23.8659 58.5695 29.8329C61.1325 33.4036 61.3332 34.6558 52.4937 39.6045C43.6541 44.5532 47.5471 38.7918 46.3889 43.9864C45.2307 49.1811 37.6235 45.3913 35.7919 51.5929C33.9603 57.7945 19.1283 65.8228 20.143 48.514Z"
+                        stroke="#F2F2F2" stroke-width="5" />
+                    <circle cx="23.2015" cy="31.1345" r="0.992501" transform="rotate(-35.6705 23.2015 31.1345)"
+                        fill="#D9D9D9" />
+                    <circle cx="34.9502" cy="22.7013" r="0.992501" transform="rotate(-35.6705 34.9502 22.7013)"
+                        fill="#D9D9D9" />
+                    <circle cx="10.5863" cy="21.3403" r="1.84322" transform="rotate(-35.6705 10.5863 21.3403)"
+                        fill="#F2F2F2" />
+                    <circle cx="29.9726" cy="8.47214" r="1.84322" transform="rotate(-35.6705 29.9726 8.47214)"
+                        fill="#F2F2F2" />
+                    <rect x="28.8745" y="32.4729" width="5.95501" height="1.13429" rx="0.567143"
+                        transform="rotate(-35.6705 28.8745 32.4729)" fill="#D9D9D9" />
+                    <path d="M10.4238 22.3296L16.9766 26.3526" stroke="#F2F2F2" stroke-width="5" />
+                    <path d="M11.7558 21.0244L17.5143 23.6977" stroke="#F2F2F2" stroke-width="5" />
+                    <path d="M29.497 9.51158L28.8525 15.9082" stroke="#F2F2F2" stroke-width="5" />
+                    <path d="M31.9682 16.1153L30.6015 9.59146" stroke="#F2F2F2" stroke-width="5" />
+                </svg>
+
+                <h1>Collab</h1>
+                <h2>Onde cada talento se encontra para criar algo unico</h2>
+                <p>Já tem uma conta? Clique aqui para fazer <a href="../Login/index.html">Login</a></p>
+            </div>
+        </div>
+        <div class="area-form">
+            <h2 class="titulo-form">Cadastre-se</h2>
+            <p>Monte sua equipe e faça o jogo que sempre quis</p>
+            <div class="form">
+                <div class="box-input">
+                    <small>Username</small>
+                    <input class="input-form" type="text" placeholder="Como quer ser chamado?">
+                </div>
+                <div class="box-input">
+                    <small>Email</small>
+                    <input class="input-form" type="text" placeholder="Entre com seu email ou nome">
+                </div>
+                <div class="box-input">
+                    <small>Senha</small>
+                    <input class="input-form" type="password" placeholder="Insira sua senha">
+                </div>
+                <div class="box-input">
+                    <small>Confirmação</small>
+                    <input class="input-form" type="password" placeholder="Confirme sua senha">
+                </div>
+            </div>
+            <div class="area-button-cad">
+                <button id="button_form">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <svg class="stars" width="1742" height="953" viewBox="0 0 1742 953" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <circle cx="931.5" cy="225.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1413.5" cy="238.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="27.5" cy="199.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1.5" cy="497.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="577.5" cy="887.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="404.5" cy="238.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="132.5" cy="951.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="284.5" cy="636.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="731.5" cy="241.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="934.5" cy="74.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="878.5" cy="503.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="629.5" cy="661.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="263.5" cy="7.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1242.5" cy="18.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="463.5" cy="1.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="580.5" cy="514.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="430.5" cy="696.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1181.5" cy="820.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="460.5" cy="820.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="62.5" cy="695.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="321.5" cy="848.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1675.5" cy="183.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="177.5" cy="137.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1586.5" cy="851.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1740.5" cy="740.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1410.5" cy="415.5" r="1.5" fill="#F2F2F2" />
+        <circle cx="1612.5" cy="487.5" r="1.5" fill="#F2F2F2" />
+        
+    </svg>
+
+    <script src="assets/script.js"></script>
+
+</body>
+</html>
+
     
 </body>
 </html>
