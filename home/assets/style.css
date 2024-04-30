@@ -9,9 +9,9 @@ body{
 dialog{
     background-color: var(--modal);
     font-family: 'Poppins', sans-serif;
-    height: 70vh;
-    border-radius: 12px;
-    width: 25vw;
+    height: 75vh;
+    border-radius: 20px;
+    width: 23vw;
 }
 
 dialog::backdrop{
@@ -52,7 +52,16 @@ dialog::backdrop{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.modal-button-next{
+    background-color: var(--elements);
+    border: none;
+    color: var(--font-title-color);
+    width: 8vw;
+    height: 5vh;
+    border-radius: 12px;
 }
 
 .modal-form .button-modal-config{
@@ -66,6 +75,12 @@ dialog::backdrop{
 
 .modal-form .button-modal-config:active {
     transform: translateY(1px); /* Efeito de clique ao pressionar o botão */
+}
+
+.area-button-next{
+    display: flex;
+    justify-content: flex-end;
+
 }
 
 
