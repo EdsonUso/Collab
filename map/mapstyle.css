@@ -9,6 +9,8 @@
     --bg-color: #293740;
     --elements: #81A687;
     --drawn: #F2F2F2;
+    --modal: #151B1E;
+
 }
 
 /*tema claro*/
@@ -19,4 +21,5 @@
     --bg-color: #F2F2F2;
     --elements: #325952;
     --drawn: #293740;
+    --modal: #ECECEC;
 }

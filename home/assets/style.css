@@ -1,10 +1,72 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #293740;
+    background-color: var(--bg-color);
+}
+
+/* ESTILIZAÇÃO DO MODAL INICIAL */
+
+dialog{
+    background-color: var(--modal);
+    font-family: 'Poppins', sans-serif;
+    height: 70vh;
+    border-radius: 12px;
+    width: 25vw;
 }
 
 dialog::backdrop{
     background-color: rgb(0 0 0/ .5)
 }
 
+.box-modal-config{
+    background-color: var(--modal);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-modal{
+    color: var(--font-title-color);
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.desc-modal p{
+    color: var(--font-detail-color);
+    font-size: 1vw;
+    margin: 0;
+}
+
+.modal-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 68%;
+    align-items: center;
+
+
+}
+
+.area-modal-form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-form .button-modal-config{
+    border: none;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    color: var(--font-title-color);
+    width: 70%;
+}
+
+.modal-form .button-modal-config:active {
+    transform: translateY(1px); /* Efeito de clique ao pressionar o botão */
+}
+
+
+/* FIM DA ESTILIZAÇÃO DO MODAL INICIAL */
