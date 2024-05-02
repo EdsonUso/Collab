@@ -32,11 +32,10 @@ function login() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
-                setTimeout(() => {
-                    window.location = "../../../home/index.html";
-                  }, "2000");
 
+                window.location = "../../../home/index.html";
             });
+
 
         } else {
 

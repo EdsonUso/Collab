@@ -5,6 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: var(--bg-color);
+
 }
 
 .stars {
@@ -255,8 +256,6 @@ body {
     border-radius: 6px;
     transition: background-color 0.3s, color 0.3s;
 }
-
-
 
 .area-form button:hover{
     background-color: #537559;

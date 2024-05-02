@@ -54,13 +54,10 @@ function setRole(role) {
     const nextButton = document.createElement('button');
     const textButton = document.createTextNode('Proximo')
 
-    //Adicionando um id ao botão 
-
     //Adicionando classes para os elementos criados dinamicamente
     divButton.classList.add('area-button-next');
     nextButton.classList.add('modal-button-next');
 
-    //inserindo os novos elementos no 
 
     if (document.querySelector('.modal-button-next') == null) {
         nextButton.appendChild(textButton)
@@ -72,12 +69,24 @@ function setRole(role) {
     nextButton.addEventListener('click', () => {
         modal.innerHTML = '';// limpando o modal para os proximos elementos
 
+        const divTitulo = document.createElement('div')
+        const titulo = document.createElement('p')
+        const textTitulo = document.createTextNode('Qual o nivel da sua formação?')
+
+
+        divTitulo.classList.add('area-titulo');
+        titulo.classList.add('titulo');
+
+        divTitulo.appendChild(titulo);
+        titulo.appendChild(textTitulo);
+
         const boxCards = document.createElement('div')
         boxCards.classList.add('box-cards')
 
         const divCards = document.createElement('div');
         divCards.classList.add('area-cards');
 
+        modal.appendChild(divTitulo)
         modal.appendChild(boxCards);
         boxCards.appendChild(divCards)
         //criando e inserindo a div que vai receber os cards no html
@@ -101,16 +110,42 @@ function setRole(role) {
         for(let i = 0; i < option.length; i++){
             const card = document.createElement('button');
             card.classList.add('card');
+            
             card.textContent = option[i];
 
             card.addEventListener('click', () => {
-                
-                
+
+                const level = card.textContent;
+
+                const divButton = document.createElement('div')
+                const nextButton = document.createElement('button');
+                const textButton = document.createTextNode('Proximo')
+            
+                //Adicionando classes para os elementos criados dinamicamente
+                divButton.setAttribute('id', 'next_button')
+                divButton.classList.add('area-button-next');
+                nextButton.classList.add('modal-button-next');
+            
+            
+                if (document.querySelector('.modal-button-next') == null) {
+                    nextButton.appendChild(textButton)
+                    modal.appendChild(divButton);
+                    divButton.appendChild(nextButton);
+                }
+
+                nextButton.addEventListener('click', () =>{
+                    modal.innerHTML = ''
+
+
+                    
+                })
+
+                setPerfil(level)
                 
             })
             divCards.appendChild(card);
         }
-
+        
         // option.forEach(option => {
         //     const card = document.createElement('div');
         //     card.classList.add('card');
@@ -121,12 +156,44 @@ function setRole(role) {
         //     });
         //     divCards.appendChild(card);
         // });
-
-
-
-
-
     })
+
+     
+
+    const inspiracoesProgramacao = ['Hollow Knight', 'Stardew Valley', 'Factorio', 'God of War', 'Stardew Valley', 'Factorio', 'Undertale', 'Cave Story'];
+    const inspiracoesIlustracao = ['Cuphead', 'Ori and the Blind Forest', 'The Legend of Zelda: Breath of the Wild', 'Child of Light', 'Gris', 'Limbo', 'Inside', 'Hyper Light Drifter']; 
+    const inspiracoesModelagem3D = ['Death Stranding', 'Final Fantasy VII Remake', 'Monster Hunter: World', 'God of War', 'Assassins Creed Odyssey', 'Red Dead Redemption 2', 'Cyberpunk 2077', 'The Last of Us Part II'];
+    const inspiracoesMusica = ['Journey', 'Celeste', 'The Witcher 3: Wild Hunt', 'Final Fantasy XV', 'NieR: Automata', 'Persona 5', 'Undertale', 'Bastion'];
+    
+    let inspiration = inspiracoesProgramacao;
+
+    if(role == 'designer'){
+        inspiration = inspiracoesIlustracao;
+    }
+
+    if(role == 'musico'){
+        inspiration = inspiracoesMusica
+    }
+
+    if(role == 'modelador'){
+        inspiration = inspiracoesModelagem3D
+    }
+
+    for(let i = 0; i <= inspiration.length; i++){
+        //criar com checkboxes e labels, é possivel costumizar totalmente os labels
+
+        //exemplo de customização
+        // .custom-checkbox label img {
+        //     width: 24px; /* Largura da imagem */
+        //     height: 24px; /* Altura da imagem */
+        //     position: absolute;
+        //     left: 0;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+    }
+
+
+
 
 
 }

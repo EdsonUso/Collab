@@ -17,7 +17,7 @@ function cadastrar() {
 
       return false;
     }
-
+    
     // Enviando o valor da nova input
     fetch("/usuario/cadastrar", {
       method: "POST",
@@ -36,11 +36,8 @@ function cadastrar() {
 
         if (resposta.ok) {
           alert("Cadastro realizado com sucesso!")
-            
-
-          setTimeout(() => {
-            window.location = "../Login/index.html";
-          }, "2000");
+    
+          window.location = "../Login/index.html";
 
           limparFormulario();
           finalizarAguardar();
