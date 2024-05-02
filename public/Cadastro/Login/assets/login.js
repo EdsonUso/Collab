@@ -9,7 +9,7 @@ function login() {
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
 
-    fetch("usuario/autenticar", {
+    fetch("/usuario/autenticar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -17,13 +17,12 @@ function login() {
         body: JSON.stringify({
             emailServer: emailVar,
             senhaServer: senhaVar
-
         })
     }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
+        console.log("HERE'S IS THEN()!")
 
         if (resposta.ok) {
-            console.log(resposta);
+            alert('encontrei você!')
 
 
             resposta.json().then(json => {
@@ -32,6 +31,10 @@ function login() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(() => {
+                    window.location = "../../../home/index.html";
+                  }, "2000");
 
             });
 
@@ -48,6 +51,8 @@ function login() {
         console.log(erro);
         console.log('foi pro catch(de alguma forma deu erro)')
     })
+
+    console.log(JSON)
 
     return false;
 }

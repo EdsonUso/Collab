@@ -31,8 +31,7 @@ function cadastrar() {
         emailServer: emailVar,
         senhaServer: senhaVar,
       }),
-    })
-      .then(function (resposta) {
+    }).then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
