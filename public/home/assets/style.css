@@ -83,5 +83,30 @@ dialog::backdrop{
 
 }
 
+.box-cards{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.area-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 68%;
+    align-items: center;
+}
+
+.card{
+    border: none;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    color: var(--font-title-color);
+    width: 70%;
+    text-align: center;
+}
+
 
 /* FIM DA ESTILIZAÇÃO DO MODAL INICIAL */

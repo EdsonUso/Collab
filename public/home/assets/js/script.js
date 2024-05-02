@@ -72,9 +72,14 @@ function setRole(role) {
     nextButton.addEventListener('click', () => {
         modal.innerHTML = '';// limpando o modal para os proximos elementos
 
+        const boxCards = document.createElement('div')
+        boxCards.classList.add('box-cards')
+
         const divCards = document.createElement('div');
         divCards.classList.add('area-cards');
-        modal.appendChild(divCards);
+
+        modal.appendChild(boxCards);
+        boxCards.appendChild(divCards)
         //criando e inserindo a div que vai receber os cards no html
 
         let option = optionProgramador;
@@ -94,12 +99,14 @@ function setRole(role) {
         //tentando converter para for normal 
 
         for(let i = 0; i < option.length; i++){
-            const card = document.createElement('div');
+            const card = document.createElement('button');
             card.classList.add('card');
             card.textContent = option[i];
 
             card.addEventListener('click', () => {
-                alert(`Selecionou: ${card.textContent}`);
+                
+                
+                
             })
             divCards.appendChild(card);
         }
