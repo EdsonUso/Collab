@@ -52,8 +52,6 @@ function setRole(role) {
     //pegando o  form modal e colocando em uma variavel
     const form = document.getElementById('area_form')
 
-    console.log(role)
-
     //criando o botão de dentro do modal dinamicamente
     const divButton = document.createElement('div')
     const nextButton = document.createElement('button');
@@ -141,9 +139,11 @@ function setRole(role) {
                 nextButton.addEventListener('click', () => {
                     modal.innerHTML = ''
 
+                    modal.classList.add('inspirations', 'modal-config')
+
                     const inspiracoesProgramacao = ['Hollow Knight', 'Stardew Valley', 'Factorio', 'God of War', 'Stardew Valley', 'Factorio', 'Undertale', 'Cave Story'];
 
-                    const inspiracoesIlustracao = ['Cuphead', 'Ori and the Blind Forest', 'The Legend of Zelda: Breath of the Wild', 'Child of Light', 'Gris', 'Limbo', 'Inside', 'Hyper Light Drifter'];
+                    const inspiracoesIlustracao = ['Cuphead', 'Ori and the Blind Forest', 'The Legend of Zelda Breath of the Wild', 'Child of Light', 'Gris', 'Limbo', 'Inside', 'Hyper Light Drifter'];
                     const inspiracoesModelagem3D = ['Death Stranding', 'Final Fantasy VII Remake', 'Monster Hunter: World', 'God of War', 'Assassins Creed Odyssey', 'Red Dead Redemption 2', 'Cyberpunk 2077', 'The Last of Us Part II'];
                     const inspiracoesMusica = ['Journey', 'Celeste', 'The Witcher 3: Wild Hunt', 'Final Fantasy XV', 'NieR: Automata', 'Persona 5', 'Undertale', 'Bastion'];
 
@@ -165,14 +165,21 @@ function setRole(role) {
                     const divCheckbox = document.createElement('div');
                     divCheckbox.classList.add('area-games');
 
+                    const titleCheckbox = document.createElement('p')
+                    const textTitle = document.createTextNode('O que te inspira a fazer seus jogos?')
+                    titleCheckbox.classList.add('titulo-inspiration')
+
+                    titleCheckbox.appendChild(textTitle)
+
                     for (let i = 0; i < inspiration.length; i++) {
                         const game = inspiration[i];
-
-
 
                         const checkbox = document.createElement('input');
                         checkbox.type = 'checkbox';
                         checkbox.id = `checkbox${game}`;
+
+                        const checkmark = document.createElement('span')
+                        checkmark.classList.add('checkmark')
 
 
                         const label = document.createElement('label');
@@ -190,12 +197,18 @@ function setRole(role) {
                         label.appendChild(img)
 
                         const span = document.createElement('span');
+                        const limit = 7; 
                         span.textContent = game;
+
+                        if(span.textContent.length > limit){
+                            span.textContent = game.substring(0, limit) + '...'
+                        }
                         label.appendChild(span)
 
                         divCheckbox.appendChild(checkbox)
                         divCheckbox.appendChild(label);
 
+                        modal.appendChild(titleCheckbox)
                         modal.appendChild(divCheckbox);
 
                         //criar com checkboxes e labels, é possivel costumizar totalmente os labels
@@ -234,14 +247,18 @@ function setRole(role) {
 
 
     })
-
-
-
-
-
-
-
 }
+
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      this.parentElement.classList.add('checked');
+    } else {
+      this.parentElement.classList.remove('checked');
+    }
+  });
+});
 
 
 

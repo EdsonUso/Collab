@@ -118,20 +118,29 @@ dialog::backdrop{
 
 .area-games {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.area-games label {
+    flex-basis: calc(50% - 10px);
+    margin: 5px;
     align-items: center;
-    height: auto;
-    width: 100%;
+    cursor: pointer;
+    flex-direction: column;
+    display: flex;
+}
+
+
+.titulo-inspiration{
+    color: var(--font-detail-color);
 }
 
 input[type="checkbox"] {
     display: none;
 }
 
-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
+label span{
+    color: var(--font-title-color);
 }
 
 label img {
@@ -142,5 +151,28 @@ label img {
     object-fit: cover; /* Mantém a proporção da imagem */
     margin-bottom: 5px;
 }
+
+.inspirations{
+    width: 50%;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ajuste conforme necessário */
+    height: 100%; /* Ajuste conforme necessário */
+    border-radius: 50%;
+    border: 2px solid transparent;
+  }
+
+  .checkbox-label:hover .checkmark {
+    border-color: rgba(0, 0, 0, 0.2); /* Cor transparente ao redor do label quando o mouse está sobre ele */
+  }
+
+  .checkbox-label input:checked + .checkmark {
+    background-color: var(--elements); /* Cor de fundo quando a checkbox está marcada */
+  }
+  
 
 /* FIM DA ESTILIZAÇÃO DO MODAL INICIAL */
