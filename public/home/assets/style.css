@@ -116,5 +116,31 @@ dialog::backdrop{
     color: var(--font-detail-color);
 }
 
+.area-games {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+label img {
+    width: 80px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: 80px; /* Ajuste o tamanho da imagem conforme necessário */
+    border-radius: 50%; /* Transforma a imagem em um círculo */
+    overflow: hidden; /* Garante que a imagem não ultrapasse o círculo */
+    object-fit: cover; /* Mantém a proporção da imagem */
+    margin-bottom: 5px;
+}
 
 /* FIM DA ESTILIZAÇÃO DO MODAL INICIAL */

@@ -22,9 +22,6 @@ function login() {
         console.log("HERE'S IS THEN()!")
 
         if (resposta.ok) {
-            alert('encontrei você!')
-
-
             resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));

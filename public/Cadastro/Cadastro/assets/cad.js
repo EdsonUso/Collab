@@ -33,7 +33,7 @@ function cadastrar() {
       }),
     }).then(function (resposta) {
         console.log("resposta: ", resposta);
-
+      
         if (resposta.ok) {
           alert("Cadastro realizado com sucesso!")
     
