@@ -17,7 +17,7 @@ body {
     z-index: -1;
 }
 
-.stars circle{
+.stars circle {
     fill: var(--drawn);
 }
 
@@ -25,7 +25,7 @@ body {
     width: 95%;
 }
 
-.nav{
+.nav {
     display: flex;
     justify-content: space-between;
 }
@@ -48,10 +48,11 @@ body {
 
 }
 
-.alien-01 path{
+.alien-01 path {
     stroke: var(--drawn);
 }
-.alien-01 circle{
+
+.alien-01 circle {
     fill: var(--drawn);
     stroke: var(--drawn);
 }
@@ -65,20 +66,20 @@ body {
     stroke: var(--drawn);
 }
 
-.alien-02 path{
+.alien-02 path {
     stroke: var(--drawn);
 }
 
-.alien-02 circle{
+.alien-02 circle {
     fill: var(--drawn);
     stroke: var(--drawn);
 }
 
-.alien-00 path{
+.alien-00 path {
     stroke: var(--drawn);
 }
 
-.alien-00 circle{
+.alien-00 circle {
     fill: var(--drawn);
     stroke: var(--drawn);
 }
@@ -93,14 +94,14 @@ body {
     ;
     stroke: var(--drawn);
     /* 802.93px em relação a 1920px de largura */
-    
+
 }
 
-.alien-03 path{
+.alien-03 path {
     stroke: var(--drawn);
 }
 
-.alien-03 circle{
+.alien-03 circle {
     fill: var(--drawn);
     stroke: var(--drawn);
 }
@@ -119,11 +120,11 @@ body {
 
 }
 
-.alien-04 path{
+.alien-04 path {
     stroke: var(--drawn);
 }
 
-.alien-04 circle{
+.alien-04 circle {
     fill: var(--drawn);
     stroke: var(--drawn);
 }
@@ -197,7 +198,7 @@ body {
 }
 
 .form small {
-   color: var(--font-title-color);
+    color: var(--font-title-color);
     line-height: 7vh;
 }
 
@@ -220,6 +221,10 @@ body {
     font-size: 10px;
 }
 
+
+
+
+
 .input-form {
     border: none;
     border-bottom: 1px solid var(--elements);
@@ -230,18 +235,18 @@ body {
 
 .input-form::placeholder {
     color: var(--elements);
-    font-size: small
+    font-size: medium
 }
 
-.area-button{
+.area-button {
     margin-top: -3.2vh;
 }
 
-.area-button-cad{
+.area-button-cad {
     margin-top: 2.4vh;
 }
 
-.area-form p{
+.area-form p {
     color: var(--font-detail-color);
     margin: 0;
 }
@@ -257,12 +262,12 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.area-form button:hover{
+.area-form button:hover {
     background-color: #537559;
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }
 
 .area-form button:active {
     background-color: #81A687;
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }

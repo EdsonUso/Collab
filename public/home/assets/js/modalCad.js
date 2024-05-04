@@ -45,6 +45,8 @@ const optionDesigner = ['Iniciante', 'Estudante', 'Profissional', 'Avançado'];
 const optionModelador = ['Iniciante', 'Intermediário', 'Avançado', 'Profissional'];
 const optionMusico = ['Iniciante', 'Amador', 'Semi-profissional', 'Profissional', 'Veterano'];
 
+let chosen = []
+
 function setRole(role) {
     //pegando o modal novamente ('talvez a logica não esteja das melhores')
     const modal = document.getElementById('modal_papel')
@@ -118,7 +120,6 @@ function setRole(role) {
 
             card.addEventListener('click', () => {
 
-                const level = card.textContent;
 
                 const divButton = document.createElement('div')
                 const nextButton = document.createElement('button');
@@ -178,16 +179,15 @@ function setRole(role) {
                         checkbox.type = 'checkbox';
                         checkbox.id = `checkbox${game}`;
 
-                        const checkmark = document.createElement('span')
-                        checkmark.classList.add('checkmark')
-
 
                         const label = document.createElement('label');
                         label.htmlFor = `checkbox${game}`;
 
+
+
                         const img = document.createElement('img');
 
-                        img.onerror = function() {
+                        img.onerror = function () {
                             img.onerror = null;
                             img.src = `assets/modal-images/${game}.jpg`;
                         };
@@ -197,10 +197,10 @@ function setRole(role) {
                         label.appendChild(img)
 
                         const span = document.createElement('span');
-                        const limit = 7; 
+                        const limit = 7;
                         span.textContent = game;
 
-                        if(span.textContent.length > limit){
+                        if (span.textContent.length > limit) {
                             span.textContent = game.substring(0, limit) + '...'
                         }
                         label.appendChild(span)
@@ -210,6 +210,56 @@ function setRole(role) {
 
                         modal.appendChild(titleCheckbox)
                         modal.appendChild(divCheckbox);
+
+                        checkbox.checked = !checkbox.checked
+
+                        label.addEventListener('click', () => {
+
+                            !checkbox.checked
+
+                            if (checkbox.checked) {
+                                if (!chosen.includes(span.textContent)) {
+                                    chosen.push(span.textContent)
+                                }
+                                span.classList.add('checked')
+                            } else {
+
+                                const index = chosen.indexOf(span.textContent);
+                                if (index !== -1) {
+                                    chosen.splice(index, 1);
+                                }
+                                span.classList.remove('checked');
+                            }
+
+                            if (chosen.length >= 3) {
+                                const divEnd = document.createElement('div')
+                                divEnd.classList.add('area-button-next')
+
+                                const endButton = document.createElement('button')
+                                endButton.classList.add('modal-button-next');
+                                endButton.setAttribute('id', 'buttonFinish')
+                                endButton.textContent = 'Finalizar'
+
+                                endButton.addEventListener('click', () => {
+                                    modal.close()
+                                })
+
+
+                                if (document.querySelector('.modal-button-next') == null) {
+                                    divEnd.appendChild(endButton);
+                                    modal.appendChild(divEnd)
+                                }
+
+
+                            }
+
+
+
+
+
+
+                        })
+
 
                         //criar com checkboxes e labels, é possivel costumizar totalmente os labels
 
@@ -224,14 +274,16 @@ function setRole(role) {
                     }
 
 
-
                 })
 
-                setPerfil(level)
-
             })
+
+
+
             divCards.appendChild(card);
         }
+
+
 
         // option.forEach(option => {
         //     const card = document.createElement('div');
@@ -247,18 +299,12 @@ function setRole(role) {
 
 
     })
+
 }
 
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', function() {
-    if (this.checked) {
-      this.parentElement.classList.add('checked');
-    } else {
-      this.parentElement.classList.remove('checked');
-    }
-  });
-});
+
+
+
 
 
 

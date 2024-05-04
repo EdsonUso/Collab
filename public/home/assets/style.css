@@ -1,44 +1,44 @@
-body{
+body {
     margin: 0;
     padding: 0;
-    background-color: var(--bg-color);
+    background-color: var(--void);
 }
 
 /* ESTILIZAÇÃO DO MODAL INICIAL */
 
-dialog{
-    background-color: var(--modal);
+dialog {
+    background-color: var(--box);
     font-family: 'Poppins', sans-serif;
     height: 75vh;
     border-radius: 20px;
     width: 23vw;
 }
 
-dialog::backdrop{
+dialog::backdrop {
     background-color: rgb(0 0 0/ .5)
 }
 
-.box-modal-config{
-    background-color: var(--modal);
+.box-modal-config {
+    background-color: var(--box);
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.titulo-modal{
+.titulo-modal {
     color: var(--font-title-color);
     font-weight: 500;
     margin: 0;
     padding: 0;
 }
 
-.desc-modal p{
+.desc-modal p {
     color: var(--font-detail-color);
     font-size: 1vw;
     margin: 0;
 }
 
-.modal-form{
+.modal-form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,14 +48,14 @@ dialog::backdrop{
 
 }
 
-.area-modal-form{
+.area-modal-form {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-.modal-button-next{
+.modal-button-next {
     background-color: var(--elements);
     border: none;
     color: var(--font-title-color);
@@ -64,7 +64,7 @@ dialog::backdrop{
     border-radius: 12px;
 }
 
-.modal-form .button-modal-config{
+.modal-form .button-modal-config {
     border: none;
     height: 40px;
     border-radius: 12px;
@@ -74,23 +74,24 @@ dialog::backdrop{
 }
 
 .modal-form .button-modal-config:active {
-    transform: translateY(1px); /* Efeito de clique ao pressionar o botão */
+    transform: translateY(1px);
+    /* Efeito de clique ao pressionar o botão */
 }
 
-.area-button-next{
+.area-button-next {
     display: flex;
     justify-content: flex-end;
 
 }
 
-.box-cards{
+.box-cards {
     height: 82%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.area-cards{
+.area-cards {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -98,7 +99,7 @@ dialog::backdrop{
     align-items: center;
 }
 
-.card{
+.card {
     border: none;
     height: 40px;
     border-radius: 12px;
@@ -108,11 +109,11 @@ dialog::backdrop{
     text-align: center;
 }
 
-.card.card:active{
+.card.card:active {
     transform: translateY(1px);
 }
 
-.titulo{
+.titulo {
     color: var(--font-detail-color);
 }
 
@@ -131,7 +132,7 @@ dialog::backdrop{
 }
 
 
-.titulo-inspiration{
+.titulo-inspiration {
     color: var(--font-detail-color);
 }
 
@@ -139,40 +140,41 @@ input[type="checkbox"] {
     display: none;
 }
 
-label span{
+label span {
     color: var(--font-title-color);
 }
 
 label img {
-    width: 80px; /* Ajuste o tamanho da imagem conforme necessário */
-    height: 80px; /* Ajuste o tamanho da imagem conforme necessário */
-    border-radius: 50%; /* Transforma a imagem em um círculo */
-    overflow: hidden; /* Garante que a imagem não ultrapasse o círculo */
-    object-fit: cover; /* Mantém a proporção da imagem */
+    width: 80px;
+    /* Ajuste o tamanho da imagem conforme necessário */
+    height: 80px;
+    /* Ajuste o tamanho da imagem conforme necessário */
+    border-radius: 50%;
+    /* Transforma a imagem em um círculo */
+    overflow: hidden;
+    /* Garante que a imagem não ultrapasse o círculo */
+    object-fit: cover;
+    /* Mantém a proporção da imagem */
     margin-bottom: 5px;
 }
 
-.inspirations{
+.inspirations {
     width: 50%;
 }
 
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Ajuste conforme necessário */
-    height: 100%; /* Ajuste conforme necessário */
-    border-radius: 50%;
-    border: 2px solid transparent;
-  }
 
-  .checkbox-label:hover .checkmark {
-    border-color: rgba(0, 0, 0, 0.2); /* Cor transparente ao redor do label quando o mouse está sobre ele */
-  }
+input[type="checkbox"]:checked + label .overlay {
+    display: block; /* Mostra a div overlay quando o checkbox está marcado */
+}
+/* Estilo para o label selecionado */
+.overlay{
+    display: none;
+}
 
-  .checkbox-label input:checked + .checkmark {
-    background-color: var(--elements); /* Cor de fundo quando a checkbox está marcada */
-  }
-  
+.checked{
+    color: var(--font-detail-color);
+}
+
+
 
 /* FIM DA ESTILIZAÇÃO DO MODAL INICIAL */
