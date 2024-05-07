@@ -260,7 +260,7 @@ input[type="checkbox"]:checked+label .overlay {
     padding-top: 15px;
 }
 
-.box-perfil {
+.sidebar-home .box-perfil {
     color: var(--font-title-color);
     display: flex;
     flex-direction: column;
@@ -485,6 +485,11 @@ input[type="checkbox"]:checked+label .overlay {
     width: 30vw;
 }
 
+.feed{
+    display: flex;
+    flex-direction: column;
+}
+
 .container-make-post{
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -511,7 +516,7 @@ input[type="checkbox"]:checked+label .overlay {
 .box-make-post{
     width: 100%;
     display: flex;
-    padding-left: 70px;
+    padding-left: 35px;
 }
 
 .box-input-post{
@@ -549,4 +554,83 @@ input[type="checkbox"]:checked+label .overlay {
 
 .sidebar-right{
     width: 250px;
+}
+
+.container-post{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+.area-perfil{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.area-perfil .box-perfil{
+    display: flex;
+    align-items: center;
+    width: 35%;
+    justify-content: space-evenly;
+}
+
+.container-post .img-post-perfil{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.container-post .img-post-perfil img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.nome-perfil p{
+    color: var(--font-title-color);
+    
+}
+
+.legenda-post{
+    padding: 8px;
+}
+
+.legenda-post span{
+    font-size: small;
+    color: var(--font-title-color);
+   
+}
+
+.midia-post{
+    width: 100%;
+    height: 100%;
+}
+
+.midia-post img{
+    width: 100%;
+}
+
+.interaction-post{
+    padding: 10px;
+}
+.data-post{
+    display: flex;
+    align-items: center;
+    height: 20px;
+    padding: 10px;
+}
+
+.data-post span{
+    color: var(--font-title-color);
+    font-size: x-small;
+}
+
+.container-post .time-post{
+    color: var(--font-title-color);
+}
+
+.container-post .like i{
+    color: var(--elements);
 }

@@ -93,5 +93,22 @@ collabs.forEach((collab, index) => {
     });
 });
 
+const likes = document.querySelectorAll('#post_like');
+
+let isChecked = false;
+likes.forEach(like => {
+    like.addEventListener('click', () => {       
+        isChecked = !isChecked
+        if (isChecked) {
+            like.classList.remove('far');
+            like.classList.add('fas');
+        } else {
+            like.classList.remove('fas');
+            like.classList.add('far');
+        }
+
+    })
+})
+
 
 
