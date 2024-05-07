@@ -482,7 +482,7 @@ input[type="checkbox"]:checked+label .overlay {
 }
 
 .area-feed{
-    width: 30vw;
+    width: 33vw;
 }
 
 .feed{
@@ -615,16 +615,31 @@ input[type="checkbox"]:checked+label .overlay {
 .interaction-post{
     padding: 10px;
 }
+
+.desc-post .name-game{
+    padding-left: 15px;
+}
+
+.desc-post .name-game a{
+    color: var(--link-color);
+    font-size: small;
+}
+
 .data-post{
     display: flex;
     align-items: center;
-    height: 20px;
-    padding: 10px;
+    height: 30px;
+    padding-left: 10px;
+    border-bottom: solid 1px var(--line-complement);
+}
+
+.data-post i{
+    color: var(--elements);
 }
 
 .data-post span{
     color: var(--font-title-color);
-    font-size: x-small;
+    font-size: xx-small;
 }
 
 .container-post .time-post{

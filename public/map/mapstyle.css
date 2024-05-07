@@ -13,6 +13,7 @@
     --box: #151B1E;
     --void: #151B1E;
     --line: #293740;
+    --line-complement: #3e505c;
 
 }
 
@@ -27,4 +28,5 @@
     --box: #BFBFBF;
     --void: #F2F2F2;
     --line: #e8e8e8;
+    --line-complement:#d6cece;
 }
