@@ -169,9 +169,9 @@ ProjectBoxes.forEach((project, index)=>{
             coverProject.appendChild(imgProject)
 
             output.appendChild(coverProject)
-
             imgCollabdiv.appendChild(imgCollab)
-            boxCollab.appendChild(imgCollab)
+            imgCollabdiv.appendChild(imgCollab)
+            boxCollab.appendChild(imgCollabdiv)
             boxCollab.appendChild(nameCollab)
 
             output.appendChild(boxCollab)
