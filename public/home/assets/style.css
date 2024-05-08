@@ -548,9 +548,7 @@ input[type="checkbox"]:checked+label .overlay {
     border-radius: 50%;
 }
 
-.container-most-popular{
-    width: 300px;
-}
+
 
 .sidebar-right{
     width: 250px;
@@ -651,18 +649,41 @@ input[type="checkbox"]:checked+label .overlay {
 }
 
 .container-most-popular{
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--bg-color);
     width: 20vw;
     border-radius: 12px;
+    padding-bottom: 20px;
+}
+
+.box-most-project{
+    display: flex;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    color: var(--font-title-color);
+    font-weight: 300;
+    justify-content: flex-start;
+    background: rgba(181, 123, 69, 0.62);
+    border-radius: 0px 0px 0px 0px;
+ 
+
+}
+
+.project-name{
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .img-most-project{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     object-fit: cover;
+    margin-left: 15px;
+
 }
 
 .img-most-project img{
@@ -671,3 +692,18 @@ input[type="checkbox"]:checked+label .overlay {
     border-radius: 12px;
     border: solid 1px;
 }
+
+.img-project{
+    width: 100%;
+    height: 23vh;
+    overflow: hidden;
+}
+
+.img-project-img{
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Rectangle 44 */
+
+
