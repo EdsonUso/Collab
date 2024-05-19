@@ -117,13 +117,17 @@ dialog::backdrop {
     color: var(--font-detail-color);
 }
 
+
 .area-games {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; 
 }
 
 .area-games label {
-    flex-basis: calc(50% - 10px);
+    width: 150px;
+    flex-basis: calc(20% - 20px);
     margin: 5px;
     align-items: center;
     cursor: pointer;
@@ -494,7 +498,7 @@ input[type="checkbox"]:checked+label .overlay {
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-color);
+    background-color: var(--line);
     border-radius: 12px;
     align-items: center;
     height: 100px;
@@ -556,7 +560,7 @@ input[type="checkbox"]:checked+label .overlay {
 
 .container-post{
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color);
+    background-color: var(--line);
     margin-top: 20px;
     border-radius: 12px;
 }
@@ -653,7 +657,7 @@ input[type="checkbox"]:checked+label .overlay {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--bg-color);
+    background-color: var(--line);
     width: 20vw;
     border-radius: 12px;
     padding-bottom: 20px;

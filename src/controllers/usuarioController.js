@@ -77,7 +77,29 @@ function cadastrar(req, res) {
     }
 }
 
+function definirTipo(req, res) {
+    var idTipo = req.body.idTipoServer;
+    var idUsuario = req.body.idUsuarioServer;
+
+    usuarioModel.definirTipo(idTipo, idUsuario)
+        .then(
+            function(resultado){
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro)/
+                console.log(
+                    "\n Houve um erro ao realizar o cadastro do tipo do Usuario! Erro:",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage)
+            }
+        )
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    definirTipo
 }

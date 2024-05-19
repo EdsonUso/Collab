@@ -3,6 +3,7 @@ function detectionColor() {
     var theme = "dark" //padrão
 
 
+    console.log(sessionStorage.NEW_USER)
     if (localStorage.getItem("theme")) {
         if (localStorage.getItem("theme") == "light") {
             theme = "light";
@@ -22,6 +23,26 @@ function detectionColor() {
 detectionColor();
 
 
+
+
+const form = document.querySelector(".modal-form")
+
+fetch("../../tipoUsuario/listar", {
+    method: "GET"
+}).then(function(resposta) {
+    resposta.json().then((listaTipos) =>{
+        listaTipos.forEach(tipo =>{
+            const button = document.createElement('button');
+            button.className = 'button-modal-config';
+            button.textContent = tipo.tipo.charAt(0).toUpperCase() + tipo.tipo.slice(1);
+            button.setAttribute('onclick', `setRole('${tipo.tipo}', ${tipo.id})`);
+            form.appendChild(button);
+
+        })
+    })
+})
+
+
 //FUNÇÃO PARA APENAS CRIAR O MODAL AO ENTRAR NA PAGINA HOME ==============================================
 const showModalPerfil = () => {
     const modal = document.getElementById('modal_papel');
@@ -36,7 +57,10 @@ const showModalPerfil = () => {
     });
 }
 
-showModalPerfil();
+if (sessionStorage.NEW_USER == "true") {
+    showModalPerfil();
+}
+
 //FIM=====================================================================================================
 
 //ARRAYS PARA CLASSIFICAÇÃO DO 
@@ -47,7 +71,7 @@ const optionMusico = ['Iniciante', 'Amador', 'Semi-profissional', 'Profissional'
 
 let chosen = []
 
-function setRole(role) {
+function setRole(role, id) {
     //pegando o modal novamente ('talvez a logica não esteja das melhores')
     const modal = document.getElementById('modal_papel')
 
@@ -72,6 +96,24 @@ function setRole(role) {
 
 
     nextButton.addEventListener('click', () => {
+
+        fetch("../usuario/definirTipo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idTipoServer: id,
+                idUsuarioServer: sessionStorage.ID_USUARIO
+            })
+        }).then(function (resposta){
+            console.log("resposta: " + resposta);
+
+        }).catch(function(erro){
+            console.log(`#ERRO: ${erro}`)
+        })
+
+        
         modal.innerHTML = '';// limpando o modal para os proximos elementos
 
         const divTitulo = document.createElement('div')
@@ -138,30 +180,10 @@ function setRole(role) {
                 }
 
                 nextButton.addEventListener('click', () => {
+
                     modal.innerHTML = ''
 
                     modal.classList.add('inspirations', 'modal-config')
-
-                    const inspiracoesProgramacao = ['Hollow Knight', 'Stardew Valley', 'Factorio', 'God of War', 'Stardew Valley', 'Factorio', 'Undertale', 'Cave Story'];
-
-                    const inspiracoesIlustracao = ['Cuphead', 'Ori and the Blind Forest', 'The Legend of Zelda Breath of the Wild', 'Child of Light', 'Gris', 'Limbo', 'Inside', 'Hyper Light Drifter'];
-                    const inspiracoesModelagem3D = ['Death Stranding', 'Final Fantasy VII Remake', 'Monster Hunter: World', 'God of War', 'Assassins Creed Odyssey', 'Red Dead Redemption 2', 'Cyberpunk 2077', 'The Last of Us Part II'];
-                    const inspiracoesMusica = ['Journey', 'Celeste', 'The Witcher 3: Wild Hunt', 'Final Fantasy XV', 'NieR: Automata', 'Persona 5', 'Undertale', 'Bastion'];
-
-                    let inspiration = inspiracoesProgramacao;
-
-                    if (role == 'designer') {
-                        inspiration = inspiracoesIlustracao;
-                    }
-
-                    if (role == 'musico') {
-                        inspiration = inspiracoesMusica
-                    }
-
-                    if (role == 'modelador') {
-                        inspiration = inspiracoesModelagem3D
-                    }
-
 
                     const divCheckbox = document.createElement('div');
                     divCheckbox.classList.add('area-games');
@@ -171,107 +193,211 @@ function setRole(role) {
                     titleCheckbox.classList.add('titulo-inspiration')
 
                     titleCheckbox.appendChild(textTitle)
+                    modal.append(titleCheckbox)
 
-                    for (let i = 0; i < inspiration.length; i++) {
-                        const game = inspiration[i];
+                    fetch("../../jogoInspirador/listar", {
+                        method: "GET",
+                    })
+                        .then(function (resposta) {
+                            resposta.json().then((games) => {
+                                games.forEach((game) => {
 
-                        const checkbox = document.createElement('input');
-                        checkbox.type = 'checkbox';
-                        checkbox.id = `checkbox${game}`;
+                                    const checkbox = document.createElement('input');
+                                    checkbox.type = 'checkbox';
+                                    checkbox.id = `checkbox${game.id}`;
 
+                                    const label = document.createElement('label');
+                                    label.htmlFor = `checkbox${game.nome}`;
 
-                        const label = document.createElement('label');
-                        label.htmlFor = `checkbox${game}`;
+                                    const img = document.createElement('img');
 
+                                    img.onerror = function () {
+                                        img.onerror = null;
+                                        img.src = `assets/modal-images/${game.nome}.jpg`;
+                                    };
 
+                                    img.src = `assets/modal-images/${game.nome}.png`;
 
-                        const img = document.createElement('img');
+                                    label.appendChild(img);
 
-                        img.onerror = function () {
-                            img.onerror = null;
-                            img.src = `assets/modal-images/${game}.jpg`;
-                        };
+                                    const span = document.createElement('span');
+                                    const limit = 7;
+                                    span.textContent = game.nome;
 
-                        img.src = `assets/modal-images/${game}.png`; // /caminho/para/a/${game}.jpg
+                                    if (span.textContent.length > limit) {
+                                        span.textContent = game.nome.substring(0, limit) + '...';
+                                    }
+                                    label.appendChild(span);
 
-                        label.appendChild(img)
+                                    divCheckbox.appendChild(checkbox);
+                                    divCheckbox.appendChild(label);
 
-                        const span = document.createElement('span');
-                        const limit = 7;
-                        span.textContent = game;
+                                    modal.appendChild(titleCheckbox);
+                                    modal.appendChild(divCheckbox);
 
-                        if (span.textContent.length > limit) {
-                            span.textContent = game.substring(0, limit) + '...'
-                        }
-                        label.appendChild(span)
+                                    checkbox.checked = !checkbox.checked;
 
-                        divCheckbox.appendChild(checkbox)
-                        divCheckbox.appendChild(label);
+                                    label.addEventListener('click', () => {
+                                        !checkbox.checked;
 
-                        modal.appendChild(titleCheckbox)
-                        modal.appendChild(divCheckbox);
+                                        if (checkbox.checked) {
+                                            if (!chosen.includes(game.id)) {
+                                                chosen.push(game.id);
+                                            }
+                                            span.classList.add('checked');
+                                        } else {
+                                            const index = chosen.indexOf(game.id);
+                                            if (index !== -1) {
+                                                chosen.splice(index, 1);
+                                            }
+                                            span.classList.remove('checked');
+                                        }
 
-                        checkbox.checked = !checkbox.checked
+                                        if (chosen.length >= 3) {
+                                            const divEnd = document.createElement('div');
+                                            divEnd.classList.add('area-button-next');
 
-                        label.addEventListener('click', () => {
+                                            const endButton = document.createElement('button');
+                                            endButton.classList.add('modal-button-next');
+                                            endButton.setAttribute('id', 'buttonFinish');
+                                            endButton.textContent = 'Finalizar';
 
-                            !checkbox.checked
+                                            endButton.addEventListener('click', () => {
 
-                            if (checkbox.checked) {
-                                if (!chosen.includes(span.textContent)) {
-                                    chosen.push(span.textContent)
-                                }
-                                span.classList.add('checked')
-                            } else {
+                                                chosen.forEach(jogo => {
+                                                    fetch("../jogoUsuario/cadastrar", {
+                                                        method: "POST",
+                                                        headers: {
+                                                            "Content-Type": "application/json",
+                                                        },
+                                                        body: JSON.stringify({
+                                                            idJogoInspiradorServer: jogo,
+                                                            idUsuarioServer: sessionStorage.ID_USUARIO
+                                                        })
+                                                    }).then(function (resposta) {
+                                                        console.log("resposta: ", resposta);
 
-                                const index = chosen.indexOf(span.textContent);
-                                if (index !== -1) {
-                                    chosen.splice(index, 1);
-                                }
-                                span.classList.remove('checked');
-                            }
+                                                    }).catch(function (resposta) {
+                                                        console.log(`#ERRO: ${resposta}`);
+                                                    })
+                                                })
 
-                            if (chosen.length >= 3) {
-                                const divEnd = document.createElement('div')
-                                divEnd.classList.add('area-button-next')
+                                                sessionStorage.NEW_USER = true;
+                                                modal.close();
+                                            });
 
-                                const endButton = document.createElement('button')
-                                endButton.classList.add('modal-button-next');
-                                endButton.setAttribute('id', 'buttonFinish')
-                                endButton.textContent = 'Finalizar'
+                                            if (document.querySelector('.modal-button-next') == null) {
+                                                divEnd.appendChild(endButton);
+                                                modal.appendChild(divEnd);
+                                            }
+                                        }
+                                    });
 
-                                endButton.addEventListener('click', () => {
-                                    modal.close()
                                 })
+                            })
+                        }).catch(function (error) {
+                            console.error("Erro ao processar resposta:", error);
+                        });
+                    // modal.innerHTML = ''
+
+                    // modal.classList.add('inspirations', 'modal-config')
+
+                    //['Hollow Knight', 'Stardew Valley', 'Factorio', 'God of War', 'Stardew Valley', 'Factorio', 'Undertale', 'Cave Story'];
+
+                    //['Cuphead', 'Ori and the Blind Forest', 'The Legend of Zelda Breath of the Wild', 'Child of Light', 'Gris', 'Limbo', 'Inside', 'Hyper Light Drifter'];
+                    // ['Death Stranding', 'Final Fantasy VII Remake', 'Monster Hunter: World', 'God of War', 'Assassins Creed Odyssey', 'Red Dead Redemption 2', 'Cyberpunk 2077', 'The Last of Us Part II'];
+                    // ['Journey', 'Celeste', 'The Witcher 3: Wild Hunt', 'Final Fantasy XV', 'NieR: Automata', 'Persona 5', 'Undertale', 'Bastion'];
+
+                    // let inspiration = inspiracoesProgramacao;
+
+                    // if (role == 'designer') {
+                    //     inspiration = inspiracoesIlustracao;
+                    // }
+
+                    // if (role == 'musico') {
+                    //     inspiration = inspiracoesMusica
+                    // }
+
+                    // if (role == 'modelador') {
+                    //     inspiration = inspiracoesModelagem3D
+                    // }
 
 
-                                if (document.querySelector('.modal-button-next') == null) {
-                                    divEnd.appendChild(endButton);
-                                    modal.appendChild(divEnd)
-                                }
 
 
-                            }
+                    // inspiration.forEach((game) => {
+                    //     const checkbox = document.createElement('input');
+                    //     checkbox.type = 'checkbox';
+                    //     checkbox.id = `checkbox${game}`;
 
+                    //     const label = document.createElement('label');
+                    //     label.htmlFor = `checkbox${game}`;
 
+                    //     const img = document.createElement('img');
 
+                    //     img.onerror = function () {
+                    //         img.onerror = null;
+                    //         img.src = `assets/modal-images/${game}.jpg`;
+                    //     };
 
+                    //     img.src = `assets/modal-images/${game}.png`;
 
+                    //     label.appendChild(img);
 
-                        })
+                    //     const span = document.createElement('span');
+                    //     const limit = 7;
+                    //     span.textContent = game;
 
+                    //     if (span.textContent.length > limit) {
+                    //         span.textContent = game.substring(0, limit) + '...';
+                    //     }
+                    //     label.appendChild(span);
 
-                        //criar com checkboxes e labels, é possivel costumizar totalmente os labels
+                    //     divCheckbox.appendChild(checkbox);
+                    //     divCheckbox.appendChild(label);
 
-                        //exemplo de customização
-                        // .custom-checkbox label img {
-                        //     width: 24px; /* Largura da imagem */
-                        //     height: 24px; /* Altura da imagem */
-                        //     position: absolute;
-                        //     left: 0;
-                        //     top: 50%;
-                        //     transform: translateY(-50%);
-                    }
+                    //     modal.appendChild(titleCheckbox);
+                    //     modal.appendChild(divCheckbox);
+
+                    //     checkbox.checked = !checkbox.checked;
+
+                    //     label.addEventListener('click', () => {
+                    //         !checkbox.checked;
+
+                    //         if (checkbox.checked) {
+                    //             if (!chosen.includes(span.textContent)) {
+                    //                 chosen.push(span.textContent);
+                    //             }
+                    //             span.classList.add('checked');
+                    //         } else {
+                    //             const index = chosen.indexOf(span.textContent);
+                    //             if (index !== -1) {
+                    //                 chosen.splice(index, 1);
+                    //             }
+                    //             span.classList.remove('checked');
+                    //         }
+
+                    //         if (chosen.length >= 3) {
+                    //             const divEnd = document.createElement('div');
+                    //             divEnd.classList.add('area-button-next');
+
+                    //             const endButton = document.createElement('button');
+                    //             endButton.classList.add('modal-button-next');
+                    //             endButton.setAttribute('id', 'buttonFinish');
+                    //             endButton.textContent = 'Finalizar';
+
+                    //             endButton.addEventListener('click', () => {
+                    //                 modal.close();
+                    //             });
+
+                    //             if (document.querySelector('.modal-button-next') == null) {
+                    //                 divEnd.appendChild(endButton);
+                    //                 modal.appendChild(divEnd);
+                    //             }
+                    //         }
+                    //     });
+                    // });
+
 
 
                 })

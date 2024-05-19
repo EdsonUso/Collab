@@ -12,4 +12,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/definirTipo", function(req,res){
+    usuarioController.definirTipo(req, res);
+})
+
 module.exports = router;

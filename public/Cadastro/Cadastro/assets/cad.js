@@ -1,8 +1,10 @@
-function cadastrar() {
-    
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
+sessionStorage.NEW_USER = false;
+
+function cadastrar() {
+
+
+
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
@@ -33,6 +35,9 @@ function cadastrar() {
       }),
     }).then(function (resposta) {
         console.log("resposta: ", resposta);
+
+        sessionStorage.NEW_USER = true;
+        console.log(sessionStorage.NEW_USER)
       
         if (resposta.ok) {
           alert("Cadastro realizado com sucesso!")
@@ -51,3 +56,5 @@ function cadastrar() {
 
     return false;
   }
+
+  console.log(sessionStorage.NEW_USER)

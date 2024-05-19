@@ -15,8 +15,10 @@ var app = express();
 
 // var indexRouter = require("./src/ro utes/index");
 var usuarioRouter = require("./src/routes/usuario");
-var cadastroRouter = require("./src/routes/cadastro")
-
+var cadastroRouter = require("./src/routes/cadastro");
+var jogoInspiradorRouter = require("./src/routes/jogoInspirador");
+var jogoUsuarioRouter = require("./src/routes/jogoUsuario");
+var tipoUsuarioRouter = require("./src/routes/tipoUsuario");
 //ROTA TEMPORARIA PARA COSTUMIZAÇÃO DE CADASTRO E TESTE DE CRIAÇÃO DE USUARIO
 app.use("/cadastro", express.static(path.join(__dirname, "Cadastro/Cadastro")));
 
@@ -29,6 +31,9 @@ app.use(cors());
 
 app.use("/Cadastro/Cadastro", cadastroRouter);
 app.use("/usuario", usuarioRouter);
+app.use("/jogoInspirador", jogoInspiradorRouter);
+app.use("/jogoUsuario", jogoUsuarioRouter);
+app.use("/tipoUsuario", tipoUsuarioRouter);
 
 
 app.listen(PORTA_APP, function () {
