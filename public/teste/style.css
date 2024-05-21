@@ -1,0 +1,54 @@
+.modal-criar-collab {
+    width: 60vw;
+    height: 67vh;
+    border-radius: 30px;
+    background-color: var(--void);
+    display: flex;
+    border: none;
+}
+
+.area-foto-collab {
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.area-form-collab {
+    padding-top: 40px;
+    width: 50%;
+}
+
+.area-form-collab input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: solid 1px var(--elements);
+    color: var(--font-title-color);
+}
+
+.area-form-collab input:placeholder {
+    color: ;
+}
+
+.box-foto-collab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 27vw;
+    height: 34vh;
+    background: var(--line);
+    border-radius: 15px;
+    color: var(--font-detail-color);
+
+}
+
+.box-foto-collab p {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+
+}
+
+
