@@ -26,9 +26,16 @@ function definirTipo(fkTipo, idUsuario){
     return database.executar(sqlInstruction)
 }
 
+function listar(idUsuario){
+    var sqlInstruction = `SELECT * FROM usuario WHERE id != ${idUsuario}`
+    console.log("Executando a instrução sql:" + sqlInstruction)
+    return database.executar(sqlInstruction)
+}
+
 module.exports ={
     autenticar, 
     cadastrar,
-    definirTipo
+    definirTipo,
+    listar
 }
 

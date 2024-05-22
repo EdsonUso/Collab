@@ -30,6 +30,33 @@
     </dialog>
     <!-- FIM DO MODAL -->
 
+    <!--MODAL PARA CRIAR COLLAB-->
+    <dialog class="modal-criar-collab" id="modalCreateCollab">
+        <div class="area-foto-collab">
+            <div class="box-foto-collab" id="fotoCollab">
+                <p>Adicione uma foto</p>
+                <input type="file" name="" accept="image/*" style="display: none;" id="input_file">
+            </div>
+        </div>
+        <div class="area-form-collab">
+            <div class="form">
+                <input type="text" class="input" id="input_nome" placeholder="Nome da Collab">
+            </div>
+            <div class="area-membros"></div>
+            <div class="area-adicionar">
+                <button id="buttonAddMember">Adicionar Membro</button>
+            </div>
+        </div>
+
+        <!--MODAL DE LISTAGEM DE USUARIOS-->
+        <dialog class="modal-membros" id="modalMembros">
+
+        </dialog>
+
+        <button id="buttonCreateCollab">Criar Collab</button>
+    </dialog>
+    <!-- FIM DO MODAL-->
+
     <div class="navbar">
         <div class="area-logo">
             <div class="logo">Logo </div>
@@ -85,7 +112,10 @@
                 </div>
 
                 <div class="area-collabs">
-                    <p class="titulo">Collabs</p>
+                    <div class="header-collab">
+                        <p class="titulo">Collabs</p>
+                    <button class="button-new-collab" id="button_new_collab">Nova Collab</button>
+                    </div>
                     <div class="collabs">
 
                         <div class="box-collab" id="select_collab">
@@ -271,6 +301,7 @@
 
     <script src="assets/js/homeDom.js"></script>
     <script src="assets/js/modalCad.js"></script>
+    <script src="assets/js/modalCollab.js"></script>
 </body>
 
 </html>

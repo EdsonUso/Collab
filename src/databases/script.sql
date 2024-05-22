@@ -69,3 +69,26 @@ create table jogoInspiradorUsuario(
     CONSTRAINT jogoUsuarioUsuario FOREIGN KEY(fkUsuario) REFERENCES usuario(id),
     CONSTRAINT jogoUsuarioJogo FOREIGN KEY (fkJogo) REFERENCES jogoInspirador(id)
 );
+
+CREATE TABLE collab(
+	id INT PRIMARY KEY AUTO_INCREMENT, 
+    nome VARCHAR(45)
+);
+
+CREATE TABLE collabUsuario(
+	fkUsuario INT, 
+    fkCollab INT, 
+    CONSTRAINT pkComposta PRIMARY KEY (fkUsuario, fkCollab),
+    CONSTRAINT collabUsuarioUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
+    CONSTRAINT collabUsuarioCollab FOREIGN KEY (fkCollab) REFERENCES collab(id)
+);
+
+
+SELECT * FROM usuario;
+
+SELECT * FROM usuario 
+	WHERE id != 1;
+
+INSERT INTO usuario values(
+	default, "teste", "teste@gmail.com", "123", 1, now() 
+);

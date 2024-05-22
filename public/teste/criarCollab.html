@@ -10,8 +10,9 @@
 <body>
     <dialog class="modal-criar-collab">
         <div class="area-foto-collab">
-            <div class="box-foto-collab">
+            <div class="box-foto-collab" id="fotoCollab">
                 <p>Adicione uma foto</p>
+                <input type="file" name="" accept="image/*" style="display: none;" id="input_file">
             </div>
         </div>
         <div class="area-form-collab">
@@ -20,9 +21,11 @@
             </div>
             <div class="area-membros"></div>
             <div class="area-adicionar">
-                <button id="buttonCreateCollab">Adicionar Membro</button>
+                <button id="buttonAddMember">Adicionar Membro</button>
             </div>
         </div>
+
+        <button id="buttonCreateCollab">Criar Collab</button>
     </dialog>
     <script src="script.js"></script>
     

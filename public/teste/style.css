@@ -48,6 +48,14 @@
   color: var(--font-detail-color);
 }
 
+.box-foto-collab img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
 .box-foto-collab p {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
@@ -65,46 +73,67 @@
   border-radius: 3px;
 }
 
-.area-adicionar button:hover{
-    background-color: var(--line);
+.area-adicionar button:hover {
+  background-color: var(--line);
 }
 
-.area-adicionar button:active{
-    background-color: var(--elements);
-    color: var(--font-title-color);
+.area-adicionar button:active {
+  background-color: var(--elements);
+  color: var(--font-title-color);
 }
-
 
 .membro {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    width: 60%; 
-    border: 1px solid var(--elements); 
-    border-radius: 3px; 
-    padding-left: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    object-fit: cover;
-  }
-  
-  .membro img {
-    width: 100%;
-    height: 100%;
-    border-radius: 4px; /* bordas arredondadas para a imagem */
-    border-radius: 50%;
-  }
-  
-  .membro p {
-    margin-top: 10px; /* margem superior para o nome */
-    font-size: 18px; /* tamanho da fonte */
-    color: var(--font-title-color);
-  }
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 60%;
+  border: 1px solid var(--elements);
+  border-radius: 3px;
+  padding-left: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  object-fit: cover;
+}
 
-  .area-imagem{
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-  }
-  
+.membro img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px; /* bordas arredondadas para a imagem */
+  border-radius: 50%;
+}
+
+.membro p {
+  margin-top: 10px; /* margem superior para o nome */
+  font-size: 18px; /* tamanho da fonte */
+  color: var(--font-title-color);
+}
+
+.area-imagem {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+#buttonCreateCollab {
+  position: absolute;
+  top: 65vh;
+  left: 36.83vw;
+  width: 35%;
+  height: 40px;
+  background-color: transparent;
+  color: var(--font-detail-color);
+  outline: none;
+  border: solid 1px var(--elements);
+  transition: background-color 0.3s ease; /* Transição suave de cor */
+  border-radius: 3px;
+}
+
+#buttonCreateCollab:hover {
+  background-color: var(--line);
+}
+
+#buttonCreateCollab:active {
+  background-color: var(--elements);
+  color: var(--font-title-color);
+}
 
