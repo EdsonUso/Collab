@@ -7,6 +7,10 @@ buttonOpen.addEventListener('click', () => {
 
 const button = document.getElementById('buttonAddMember');
 
+const listaUsuariosListados = [];
+const listaUsuariosSelecionados = [];
+
+
 button.addEventListener('click', () => {
     const modalMembros = document.getElementById('modalMembros');
 
@@ -20,46 +24,69 @@ button.addEventListener('click', () => {
         }),
     }).then(function (resposta) {
         resposta.json().then((listaUsuarios) => {
-            listaUsuarios.forEach(usuario => {
-                modalMembros.innerHTML +=
-                    `<div class="box-member-add" id="member">
+            listaUsuarios.forEach((usuario, index) => {
+
+                console.log(usuario)
+                console.log(usuario.id)
+                console.log(usuario.nome)
+
+                if (!listaUsuariosListados.includes(usuario)) {
+                    modalMembros.innerHTML +=
+                        `<div class="box-member-add" id="${index}">
                         <div class="img-member" for="collab">
                             <img src="assets/modal-images/${usuario.nome}.png" alt="" class="img-member-img">
                         </div>
                         <span class="member-name-add" id="span_member">${usuario.nome}</span>
                     </div>`;
 
+                    listaUsuariosListados.push(usuario)
+
+                }
+
+
                 const divMembers = document.querySelectorAll('.box-member-add');
+                console.log(divMembers)
+                const users = document.querySelectorAll('.membro');
 
                 divMembers.forEach(divMember => {
                     divMember.addEventListener('click', () => {
-                        const users = document.querySelectorAll('.membro');
+                        modalMembros.innerHTML = ''
+                        adicionarUsuario(listaUsuariosListados[divMember.id]);
+                        console.log(listaUsuariosListados[divMember.id])
+                    })
+                })
 
-                        if (users.length <= 4) {
-                            // Criando os elementos
-                            let card = document.createElement('div');
-                            let areaImagem = document.createElement('div');
-                            let nome = document.createElement('p');
+                function adicionarUsuario(u) {
+                    if (users.length <= 4) {
+                        // Criando os elementos
+                        let card = document.createElement('div');
+                        let areaImagem = document.createElement('div');
+                        let nome = document.createElement('p');
 
-                            let imagem = document.createElement('img');
-                            areaImagem.appendChild(imagem);
+                        let imagem = document.createElement('img');
+                        areaImagem.appendChild(imagem);
 
-                            areaImagem.classList.add('area-imagem');
-                            card.className = 'membro';
-                            imagem.src = `../home/assets/feed-images/${usuario.nome}.jpg`;
-                            imagem.alt = `${usuario.nome}`;
-                            nome.textContent = `${usuario.nome}`;
+                        areaImagem.classList.add('area-imagem');
+                        card.className = 'membro';
+                        imagem.src = `../home/assets/feed-images/${u.nome}.jpg`;
+                        nome.textContent = `${u.nome}`;
 
-                            // Adicionando elementos ao card
-                            card.appendChild(areaImagem);
-                            card.appendChild(nome);
+                        // Adicionando elementos ao card
+                        card.appendChild(areaImagem);
+                        card.appendChild(nome);
 
-                            // Adicionando card ao container
-                            var areaMembros = document.querySelector('.area-membros');
-                            areaMembros.appendChild(card);
-                        }
-                    });
-                });
+                        // Adicionando card ao container
+                        var areaMembros = document.querySelector('.area-membros');
+                        areaMembros.appendChild(card);
+                    }
+
+                    listaUsuariosSelecionados.push(u)
+                    console.log("LISTA DE USUARIOS", listaUsuariosSelecionados)
+
+                    modalMembros.close();
+                    modalMembros.style.display = "none"
+
+                }
             });
         });
     });
@@ -90,5 +117,65 @@ document.addEventListener('DOMContentLoaded', () => {
 const buttonCreate = document.getElementById('buttonCreateCollab')
 
 buttonCreate.addEventListener('click', () => {
+
+    const nomeCollab = input_nome_collab.value
+    console.log(nomeCollab)
+    
     modal.style.display = "none";
+
+    fetch("../collab/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeCollabServer: nomeCollab
+        })
+    }).then(function (resposta) {
+        console.log("Resposta da primeira requisição:", resposta);
+    
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log("JSON da resposta:", json);
+                console.log("ID da collab:", json.id);
+                
+                listaUsuariosSelecionados.forEach(usuario => {
+                    console.log("ID DO USUARIO", usuario.id);
+    
+                    fetch("../membro/cadastrar", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            idCollabServer: json.insertId,
+                            idCreatorServer: sessionStorage.ID_USUARIO,
+                            idUsuarioServer: usuario.id
+                        })
+                    }).then(function (resposta) {
+                        console.log("Resposta da segunda requisição:", resposta);
+                        if (resposta.ok) {
+                            return resposta.json();
+                        } else {
+                            throw new Error("Resposta não OK da segunda requisição: " + resposta.status);
+                        }
+                    }).then(function(json) {
+                        console.log("JSON da segunda resposta:", json);
+                    }).catch(function (erro) {
+                        console.log(`#ERRO na segunda requisição: ${erro}`);
+                    });
+                });
+            }).catch(function (erro) {
+                console.log(`#ERRO ao analisar o JSON da primeira resposta: ${erro}`);
+            });
+        } else {
+            console.log("Resposta não OK:", resposta.status);
+        }
+
+
+
+
+    }).catch(function (erro) {
+        console.log(`#ERRO: ${erro}`)
+    })
 });

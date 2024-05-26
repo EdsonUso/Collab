@@ -40,13 +40,14 @@
         </div>
         <div class="area-form-collab">
             <div class="form">
-                <input type="text" class="input" id="input_nome" placeholder="Nome da Collab">
+                <input type="text" class="input" id="input_nome_collab" placeholder="Nome da Collab">
             </div>
             <div class="area-membros"></div>
             <div class="area-adicionar">
                 <button id="buttonAddMember">Adicionar Membro</button>
             </div>
         </div>
+
 
         <!--MODAL DE LISTAGEM DE USUARIOS-->
         <dialog class="modal-membros" id="modalMembros">
@@ -57,12 +58,17 @@
     </dialog>
     <!-- FIM DO MODAL-->
 
+
+    <!--MODAL PARA CRIAR PROJETO-->
+    <dialog class="modal-criar-collab" id="modalCreateProject">
+        <select name="" id="select_collabs">
+            
+        </select>
+    </dialog>
+
     <div class="navbar">
         <div class="area-logo">
             <div class="logo">Logo </div>
-        </div>
-        <div class="area-search">
-            <input type="text" class="search-input" id="inputSearch">
         </div>
     </div>
 
@@ -82,8 +88,7 @@
                             <img src="assets/modal-images/Inside.png" alt="" class="img-projeto-img">
                         </div>
                         <span class="nome-projeto">For the Flower</span>
-                        <button class="button-novo-projeto"><img src="assets/icons/equipe-verificar-alt 1.png" alt=""
-                                srcset=""> Criar</button>
+                        <button class="button-novo-projeto" id="buttonCreateProject"><img src="assets/icons/equipe-verificar-alt 1.png" alt="">Criar</button>
                     </div>
                 </div>
 
@@ -174,7 +179,7 @@
                         <div class="area-perfil">
                             <div class="box-perfil">
                                 <div class="img-post-perfil">
-                                    <img src="assets/modal-images/Gris.png" alt="">
+                                    <img src="assets/modal-images/Hollow Knight.png" alt="">
                                 </div>
                                 <div class="nome-perfil">
                                     <p>Majora
@@ -215,10 +220,10 @@
                         <div class="area-perfil">
                             <div class="box-perfil">
                                 <div class="img-post-perfil">
-                                    <img src="assets/modal-images/Gris.png" alt="">
+                                    <img src="assets/modal-images/Hollow Knight.png" alt="">
                                 </div>
                                 <div class="nome-perfil">
-                                    <p>Majora
+                                    <p>Luteros
                                     <p>
                                 </div>
                             </div>
@@ -302,6 +307,7 @@
     <script src="assets/js/homeDom.js"></script>
     <script src="assets/js/modalCad.js"></script>
     <script src="assets/js/modalCollab.js"></script>
+    <script src="assets/js/modalProject.js"></script>
 </body>
 
 </html>
