@@ -7,7 +7,7 @@ router.post("/cadastrar", function (req, res){
     collabController.cadastrar(req, res)
 })
 
-router.get("/listar", function(req, res){
+router.post("/listar", function(req, res){
     collabController.listar(req, res)
 })
 

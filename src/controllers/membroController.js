@@ -2,11 +2,10 @@ var membroModel = require("../models/membroModel.js");
 
 function cadastrar(req, res){
     var idCollab = req.body.idCollabServer;
-    var idCreator = req.body.idCreatorServer;
     var idUsuario = req.body.idUsuarioServer;
 
 
-    membroModel.cadastrar(idCollab, idCreator, idUsuario)
+    membroModel.cadastrar(idCollab, idUsuario)
     .then(
         function (resultado) {
             res.json(resultado);

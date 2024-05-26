@@ -22,7 +22,8 @@ function cadastrar(req, res){
 }
 
 function listar(req, res){
-    collabModel.listar().then(
+    var idUsuario = req.body.idUsuarioServer
+    collabModel.listar(idUsuario).then(
         function (result){
             res.json(result)
         }

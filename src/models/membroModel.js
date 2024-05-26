@@ -1,16 +1,12 @@
 var database = require("../databases/config");
 
-function cadastrar(fkCollab, fkUsuarioCriado, fkUsuario){
-    var sqlInstruction = `INSERT INTO membrosCollab (fkCollab, fkUsuario, dtCriacao) VALUES 
-    (${fkCollab}, ${fkUsuarioCriado}, now());`
+function cadastrar(fkCollab, fkUsuario){
     
-    var sqlInstruction2 = `INSERT INTO membrosCollab (fkCollab, fkUsuario, dtCriacao) VALUES (${fkCollab}, ${fkUsuario}, now());`;
+    var sqlInstruction = `INSERT INTO membrosCollab (fkCollab, fkUsuario, dtCriacao) VALUES (${fkCollab}, ${fkUsuario}, now());`;
 
-    console.log("Executando a instrução sql:", sqlInstruction2)
+    console.log("Executando a instrução sql:", sqlInstruction)
 
-    database.executar(sqlInstruction)
-
-    return database.executar(sqlInstruction2)
+    return database.executar(sqlInstruction)
 }
 
 module.exports = {

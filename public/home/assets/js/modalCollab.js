@@ -120,8 +120,9 @@ buttonCreate.addEventListener('click', () => {
 
     const nomeCollab = input_nome_collab.value
     console.log(nomeCollab)
-    
+
     modal.style.display = "none";
+    
 
     fetch("../collab/cadastrar", {
         method: "POST",
@@ -133,44 +134,68 @@ buttonCreate.addEventListener('click', () => {
         })
     }).then(function (resposta) {
         console.log("Resposta da primeira requisição:", resposta);
-    
+
         if (resposta.ok) {
             resposta.json().then(json => {
                 console.log("JSON da resposta:", json);
                 console.log("ID da collab:", json.id);
-                
-                listaUsuariosSelecionados.forEach(usuario => {
-                    console.log("ID DO USUARIO", usuario.id);
-    
-                    fetch("../membro/cadastrar", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            idCollabServer: json.insertId,
-                            idCreatorServer: sessionStorage.ID_USUARIO,
-                            idUsuarioServer: usuario.id
-                        })
-                    }).then(function (resposta) {
-                        console.log("Resposta da segunda requisição:", resposta);
-                        if (resposta.ok) {
-                            return resposta.json();
-                        } else {
-                            throw new Error("Resposta não OK da segunda requisição: " + resposta.status);
-                        }
-                    }).then(function(json) {
-                        console.log("JSON da segunda resposta:", json);
-                    }).catch(function (erro) {
-                        console.log(`#ERRO na segunda requisição: ${erro}`);
-                    });
-                });
+
+
+                //CADASTRO DO USUARIO QUE ESTÁ CRIANDO A COLLAB
+                fetch("../membro/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        idCollabServer: json.insertId,
+                        idUsuarioServer: sessionStorage.ID_USUARIO
+                    })
+                }).then(function (resposta) {
+                    if (resposta.ok) {
+                        //CADASTRO DOS OUTROS USUARIOS QUE FAZEM PARTE DA COLLAB
+                        listaUsuariosSelecionados.forEach(usuario => {
+                            console.log("ID DO USUARIO", usuario.id);
+
+                            fetch("../membro/cadastrar", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    idCollabServer: json.insertId,
+                                    idUsuarioServer: usuario.id
+                                })
+                            }).then(function (resposta) {
+                                console.log("Resposta da segunda requisição:", resposta);
+                                if (resposta.ok) {
+                                    return resposta.json();
+                                } else {
+                                    throw new Error("Resposta não OK da segunda requisição: " + resposta.status);
+                                }
+                            }).then(function (json) {
+                                console.log("JSON da segunda resposta:", json);
+                            }).catch(function (erro) {
+                                console.log(`#ERRO na segunda requisição: ${erro}`);
+                            });
+                        });
+
+                    } else {
+                        throw new Error("Resposta não OK para cadastro do criador: " + resposta.status);
+                    }
+                }).catch(function (erro) {
+                    console.log("ERRO", erro)
+                })
+
+
             }).catch(function (erro) {
                 console.log(`#ERRO ao analisar o JSON da primeira resposta: ${erro}`);
             });
         } else {
             console.log("Resposta não OK:", resposta.status);
         }
+
+        location.reload(true)
 
 
 

@@ -902,3 +902,111 @@ input[type="checkbox"]:checked + label .overlay {
   background-color: #81a687;
   color: #ffffff;
 }
+
+.game-cover-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34vw;
+  height: 38vh;
+  background-color: var(--line);
+  border-radius: 15px;
+}
+
+.game-cover-upload label {
+  font-weight: 500;
+  color: var(--font-detail-color);
+}
+
+.game-cover-upload input[type="file"] {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.open-modal {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+
+.game-info{
+  width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-game{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.form-game textarea{
+  background-color: transparent;
+  border: solid 1px var(--elements);
+  border-radius: 5px;
+  color: var(--font-title-color);
+  height: 150px;
+}
+
+.form-game textarea::placeholder {
+  color: var(--elements);
+}
+
+.collab-info 
+.team-info{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.game-info{
+  width: 100%;
+}
+
+.collab-info{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collab-info p{
+  color: var(--font-detail-color);
+}
+
+.collab-info select {
+  width: 85%;
+  height: 45px;
+  border: solid 1px var(--elements);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--font-detail-color);
+}
+
+.collab-info option {
+  color: var(--elements);
+  background-color: transparent;
+  border: solid 1px var(--elements);
+}
+
+
+.game-info input{
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: solid 1px var(--elements);
+  color: var(--font-title-color);
+}
+
+.game-info input::placeholder {
+  font-family: "Poppins", sans-serif;
+  color: var(--font-detail-color);
+}
+

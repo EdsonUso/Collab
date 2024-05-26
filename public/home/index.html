@@ -23,7 +23,7 @@
             </div>
             <div class="area-modal-form" id="area_form">
                 <div class="modal-form">
-                    
+
                 </div>
             </div>
         </div>
@@ -61,9 +61,24 @@
 
     <!--MODAL PARA CRIAR PROJETO-->
     <dialog class="modal-criar-collab" id="modalCreateProject">
-        <select name="" id="select_collabs">
-            
-        </select>
+        <div class="game-info">
+            <div class="game-cover-upload">
+                <label for="gameCover">Adicione a capa do seu jogo</label>
+                <input type="file" id="gameCover" name="gameCover">
+            </div>
+
+            <div class="form-game">
+                <input type="text" id="input_nome_project" placeholder="Qual o nome do seu jogo?">
+                <textarea type="text" id="text_desc" placeholder="O descreva em poucas palavras"></textarea>
+            </div>
+        </div>
+
+        <div class="collab-info">
+            <p>Qual equipe vai fazer esse jogo incrivel?</p>
+            <select name="" id="select_collabs">
+
+            </select>
+        </div>
     </dialog>
 
     <div class="navbar">
@@ -88,12 +103,13 @@
                             <img src="assets/modal-images/Inside.png" alt="" class="img-projeto-img">
                         </div>
                         <span class="nome-projeto">For the Flower</span>
-                        <button class="button-novo-projeto" id="buttonCreateProject"><img src="assets/icons/equipe-verificar-alt 1.png" alt="">Criar</button>
+                        <button class="button-novo-projeto" id="buttonCreateProject"><img
+                                src="assets/icons/equipe-verificar-alt 1.png" alt="">Criar</button>
                     </div>
                 </div>
 
                 <div class="area-projetos-recentes">
-                    <p class="titulo">Projetos Recentes</p>
+                    <p class="titulo">Jogos Recentes</p>
                     <div class="area-projetos">
                         <div class="projeto">
                             <div class="img-projeto">
@@ -119,7 +135,7 @@
                 <div class="area-collabs">
                     <div class="header-collab">
                         <p class="titulo">Collabs</p>
-                    <button class="button-new-collab" id="button_new_collab">Nova Collab</button>
+                        <button class="button-new-collab" id="button_new_collab">Nova Collab</button>
                     </div>
                     <div class="collabs">
 
@@ -262,7 +278,7 @@
         <div class="area-most-popular">
             <div class="container-most-popular">
                 <div class="titulo-most-popular">
-                    <p>Projetos em alta</p>
+                    <p>Jogos em alta</p>
                 </div>
 
                 <div class="box-most-project">

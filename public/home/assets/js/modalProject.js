@@ -3,6 +3,7 @@ const modalProject = document.getElementById('modalCreateProject')
 
 buttonProject.addEventListener('click', () => {
     modalProject.style.display = "flex"
+    modalProject.classList.add('open-modal')
 
     listarCollabs()
 })
@@ -11,7 +12,12 @@ buttonProject.addEventListener('click', () => {
 function listarCollabs() {
     fetch("../collab/listar", {
         method: "POST",
-        
+        headers: {
+            "Content-type":"application/json"
+        },
+        body: JSON.stringify({
+            idUsuarioServer: sessionStorage.ID_USUARIO
+        })
     })
         .then(function (resposta) {
             resposta.json().then((collabs) => {
