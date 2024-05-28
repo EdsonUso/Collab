@@ -9,6 +9,14 @@ function cadastrar(req, res){
     projetoModel.cadastrar(idCollab, nome, descricao);
 }
 
+
+function listar(req, res){
+    var idCollab = req.body.idCollabServer;
+
+    projetoModel.listar(idCollab)
+}
+
 module.exports = {
-    cadastrar
+    cadastrar,
+    listar
 }

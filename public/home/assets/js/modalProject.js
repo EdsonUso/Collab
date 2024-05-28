@@ -7,7 +7,7 @@ buttonProject.addEventListener('click', () => {
     modalProject.style.display = "flex"
     modalProject.classList.add('open-modal')
 
-    listarCollabs()
+    listarCollabstoProject()
 
 
 })
@@ -19,7 +19,7 @@ document.addEventListener('keydown', function (event) {
 })
 
 
-function listarCollabs() {
+function listarCollabstoProject() {
     fetch("../collab/listar", {
         method: "POST",
         headers: {

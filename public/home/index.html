@@ -85,9 +85,20 @@
     <!--FIM DO MODAL PARA CRIAR PROJETO-->
 
     <!--MODAL PARA CRIAR PUBLICACAO-->
-    <dialog class="modal-criar-collab" id="modalCreatePost">
-        AAAAAAAAAAAAAAAAA ISSO AQUI É MODAL DE PUBLICAÇÃO
+    <dialog class="modal-create-post" id="modalCreatePost">
+        <label for="updateType">Atualização de:</label>
+        <div class="box-create-post" style="display: flex; justify-content: space-between;">
+            <select class="drop-collab" onchange="listarProjectstoPub(this.value)" id="select_collab_post">
+
+            </select>
+        </div>
+        <textarea class="input-desc-project" type="text" id="activity" placeholder="O que vocês andam aprontando?"></textarea>
+        <button id="buttonCadPhotoPost" type="button">Adicionar foto</button>
+
+        <button id="buttonPosting">Publicar</button>
     </dialog>
+
+    <!--FIM DO MODAL CADASTRAR PUBLICACAO-->
 
     <div class="navbar">
         <div class="area-logo">
