@@ -7,5 +7,9 @@ router.post("/cadastrar", function (req, res) {
     membroController.cadastrar(req, res);
 })
 
+router.post("/listar", function(req, res){
+    membroController.listar(req, res)
+})
+
 
 module.exports = router;

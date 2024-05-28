@@ -22,7 +22,27 @@ function cadastrar(req, res){
     );
 }
 
+function listar(req, res){
+    var idCollab = req.body.idCollabServer;
+
+    membroModel.listar(idCollab)
+    .then(
+        function(result) {
+            res.json(result)
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro)
+            console.log("\nHouce um erro ao realizar a listagem! ERRO:",
+                erro.sqlMessage
+            )
+            res.status(500).json(erro.sqlMessage)
+        }
+    );
+}
+
 
 module.exports = {
-    cadastrar
+    cadastrar, 
+    listar
 }

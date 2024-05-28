@@ -5,6 +5,13 @@ buttonOpen.addEventListener('click', () => {
     modal.style.display = "flex";
 });
 
+
+document.addEventListener('keydown', function(event) {
+    if(event.key === "Escape"){
+        modal.style.display = "none"
+    }
+})
+
 const button = document.getElementById('buttonAddMember');
 
 const listaUsuariosListados = [];
@@ -139,8 +146,6 @@ buttonCreate.addEventListener('click', () => {
             resposta.json().then(json => {
                 console.log("JSON da resposta:", json);
                 console.log("ID da collab:", json.id);
-
-
                 //CADASTRO DO USUARIO QUE ESTÁ CRIANDO A COLLAB
                 fetch("../membro/cadastrar", {
                     method: "POST",
@@ -155,7 +160,7 @@ buttonCreate.addEventListener('click', () => {
                     if (resposta.ok) {
                         //CADASTRO DOS OUTROS USUARIOS QUE FAZEM PARTE DA COLLAB
                         listaUsuariosSelecionados.forEach(usuario => {
-                            console.log("ID DO USUARIO", usuario.id);
+                            console.log("ID DO USUARIO", usuario.id)
 
                             fetch("../membro/cadastrar", {
                                 method: "POST",
@@ -179,6 +184,7 @@ buttonCreate.addEventListener('click', () => {
                                 console.log(`#ERRO na segunda requisição: ${erro}`);
                             });
                         });
+                        location.reload(true)
 
                     } else {
                         throw new Error("Resposta não OK para cadastro do criador: " + resposta.status);
@@ -195,7 +201,7 @@ buttonCreate.addEventListener('click', () => {
             console.log("Resposta não OK:", resposta.status);
         }
 
-        location.reload(true)
+      
 
 
 

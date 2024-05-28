@@ -21,6 +21,8 @@ var jogoUsuarioRouter = require("./src/routes/jogoUsuario");
 var tipoUsuarioRouter = require("./src/routes/tipoUsuario");
 var collabRouter = require("./src/routes/collab")
 var membroRouter = require("./src/routes/membro")
+var projetoRouter = require("./src/routes/projeto");
+var pubRouter = require("./src/routes/publicacao");
 
 
 //ROTA TEMPORARIA PARA COSTUMIZAÇÃO DE CADASTRO E TESTE DE CRIAÇÃO DE USUARIO
@@ -40,6 +42,8 @@ app.use("/jogoInspirador", jogoInspiradorRouter);
 app.use("/jogoUsuario", jogoUsuarioRouter);
 app.use("/tipoUsuario", tipoUsuarioRouter);
 app.use("/collab", collabRouter);
+app.use("/projeto", projetoRouter);
+app.use("/pub", pubRouter);
 
 
 app.listen(PORTA_APP, function () {

@@ -75,20 +75,36 @@ CREATE TABLE collab(
     nome VARCHAR(45)
 );
 
-CREATE TABLE collabUsuario(
-	fkUsuario INT, 
-    fkCollab INT, 
-    CONSTRAINT pkComposta PRIMARY KEY (fkUsuario, fkCollab),
-    CONSTRAINT collabUsuarioUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
-    CONSTRAINT collabUsuarioCollab FOREIGN KEY (fkCollab) REFERENCES collab(id)
-);
-
-
-SELECT * FROM usuario;
-
-SELECT * FROM usuario 
-	WHERE id != 1;
-
 INSERT INTO usuario values(
 	default, "teste", "teste@gmail.com", "123", 1, now() 
+);
+
+CREATE TABLE projeto(
+	id INT AUTO_INCREMENT, 
+    fkCollab INT, 
+    CONSTRAINT pkComposta PRIMARY KEY(id, fkCollab),
+    nome VARCHAR(45),
+    descricao VARCHAR(200),
+    CONSTRAINT projetoCollab FOREIGN KEY(fkCollab) REFERENCES collab(id)
+);
+
+CREATE TABLE membrosCollab(
+	id INT AUTO_INCREMENT, 
+    fkCollab INT, 
+    fkUsuario INT, 
+    CONSTRAINT pkComposta PRIMARY KEY(id, fkCollab, fkUsuario),
+    dtCriacao DATETIME, 
+    CONSTRAINT membrosCollabCollab FOREIGN KEY (fkCollab) REFERENCES collab(id),
+    CONSTRAINT membrosCollabUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
+);
+
+CREATE TABLE publicacao(
+	id INT AUTO_INCREMENT, 
+    fkCollab INT, 
+    fkProjeto INT, 
+    CONSTRAINT pkComposta PRIMARY KEY(id, fkCollab, fkProjeto), 
+    descricao VARCHAR(130), 
+    imgPub VARCHAR(255),
+    CONSTRAINT publicacaoCollab FOREIGN KEY (fkCollab) REFERENCES collab(id),
+    CONSTRAINT publicacaoProjeto FOREIGN KEY (fkProjeto) REFERENCES projeto(id)
 );
