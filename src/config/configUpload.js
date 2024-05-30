@@ -1,6 +1,6 @@
 const multer = require('multer')
 
-const diretorio = 'public/data-images'
+const diretorio = 'public/data-images/'
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {

@@ -101,6 +101,8 @@ button.addEventListener('click', () => {
     modalMembros.style.display = "block";
 });
 
+
+let imageCollab = ''
 document.addEventListener('DOMContentLoaded', () => {
     const fotoCollab = document.getElementById('fotoCollab');
     const inputFile = document.getElementById('input_file');
@@ -111,12 +113,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inputFile.addEventListener('change', (event) => {
         const file = event.target.files[0];
+        console.log("FILE NOME", file.name)
         if (file) {
             const reader = new FileReader();
             reader.onload = (e) => {
                 fotoCollab.innerHTML = `<img src="${e.target.result}" alt="Foto da Collab">`;
             };
+            console.log(file.name)
+            imageCollab = file
+            console.log(imageCollab)
+            
             reader.readAsDataURL(file);
+            
         }
     });
 });
@@ -129,16 +137,15 @@ buttonCreate.addEventListener('click', () => {
     console.log(nomeCollab)
 
     modal.style.display = "none";
+    const formData = new FormData();
+
+    formData.append('foto', imageCollab);
+    formData.append('nome', nomeCollab);
     
 
     fetch("../collab/cadastrar", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            nomeCollabServer: nomeCollab
-        })
+        body: formData
     }).then(function (resposta) {
         console.log("Resposta da primeira requisição:", resposta);
 

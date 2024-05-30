@@ -30,7 +30,7 @@ app.use("/cadastro", express.static(path.join(__dirname)));
 
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({limit: '10mb', extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());

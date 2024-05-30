@@ -2,9 +2,14 @@ var collabModel = require("../models/collabModel")
 
 
 function cadastrar(req, res){
-    var nomeCollab = req.body.nomeCollabServer
+    console.log(req.file)
+    console.log(req.body)
+    var foto = req.file.filename;
+    var nome = req.body.nome;
 
-    collabModel.cadastrar(nomeCollab)
+    var collab = {foto, nome}
+
+    collabModel.cadastrar(collab)
     .then(
         function (resultado) {
             res.json(resultado);

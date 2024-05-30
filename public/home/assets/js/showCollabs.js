@@ -13,6 +13,7 @@ fetch("../collab/listar", {
     .then(function (resposta) {
         resposta.json().then(Listcollabs => {
             Listcollabs.forEach((collab, index) => {
+                console.log("COLLAB", collab)
                 let divBoxCollab = document.createElement("div");
                 divBoxCollab.className = "box-collab";
                 divBoxCollab.id = "select_collab";
@@ -25,7 +26,7 @@ fetch("../collab/listar", {
 
                 // Criação do elemento img com a classe "img-collab-img"
                 let imgCollab = document.createElement("img");
-                imgCollab.src = "assets/modal-images/Hyper Light Drifter.jpg";
+                imgCollab.src = `../../data-images/${collab.foto}`;
                 imgCollab.alt = "";
                 imgCollab.className = "img-collab-img";
 

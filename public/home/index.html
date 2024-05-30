@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
-<body>
+<body onload="listarPosts()">
 
     <!-- MODAL INICIAL -->
     <dialog class="modal-config" id="modal_papel">
@@ -88,12 +88,15 @@
     <dialog class="modal-create-post" id="modalCreatePost">
         <label for="updateType">Atualização de:</label>
         <div class="box-create-post" style="display: flex; justify-content: space-between;">
-            <select class="drop-collab" onchange="listarProjectstoPub(this.value)" id="select_collab_post">
+            <select class="drop-collab" id="select_collab_post">
 
             </select>
         </div>
-        <textarea class="input-desc-project" type="text" id="activity" placeholder="O que vocês andam aprontando?"></textarea>
-        <button id="buttonCadPhotoPost" type="button">Adicionar foto</button>
+        <textarea class="input-desc-project" type="text" id="activityPost"
+            placeholder="O que vocês andam aprontando?"></textarea>
+        <input class="input-photo-post" type="file" id="buttonCadPhotoPost"></button>
+
+        <div class="box-preview-photo" id="previewPhotoPost"></div>
 
         <button id="buttonPosting">Publicar</button>
     </dialog>
@@ -168,7 +171,7 @@
         </div>
 
         <div class="area-feed">
-            <div class="feed">
+            <div class="feed" id="feedView">
                 <div class="container-make-post">
                     <div class="titulo-post">
                         <p>Faça uma atualização!</p>
@@ -183,7 +186,7 @@
                     </div>
                 </div>
 
-                <div class="container-post">
+                <!-- <div class="container-post">
                     <div class="box-post">
                         <div class="area-perfil">
                             <div class="box-perfil">
@@ -263,7 +266,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
