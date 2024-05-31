@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Gráficos</title>
+    <link rel="stylesheet" href="../map/mapstyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <div class="area-tipo-usuario">
+            <div class="container-pointers">
+                <div class="box-tipo programador">
+                    <p>Programador</p>
+                    <p id="devPointer"></p>
+                </div>
+                <div class="box-tipo musico">
+                    <p>Musico</p>
+                    <p id="musicPointer"></p>
+                </div>
+                <div class="box-tipo designer">
+                    <p>Designer</p>
+                    <p id="designerPointer"></p>
+                </div>
+                <div class="box-tipo modelador">
+                    <p>Modelador</p>
+                    <p id="modeladorPointer"></p>
+                </div>
+            </div>
+            <div class="chart-container circle-chart">
+                <canvas id="doughnut-chart"></canvas>
+            </div>
+        </div>
+        <div class="chart-container">
+            <div class="bar-chart">
+                <canvas id="bar-chart"></canvas>
+            </div>
+            <div class="line-chart">
+                <canvas id="line-chart"></canvas>
+            </div>
+        </div>
+
+        <script src="assets/js/script.js"></script>
+</body>
+
+</html>

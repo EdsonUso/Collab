@@ -105,9 +105,16 @@ function listar(req, res) {
     })
 }
 
+function listarPorTipo(req, res) {
+    usuarioModel.listarPorTipo().then((resultado) => {
+        res.status(200).json(resultado)
+    })
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     definirTipo,
-    listar
+    listar,
+    listarPorTipo
 }

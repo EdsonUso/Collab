@@ -20,4 +20,8 @@ router.post("/listar", function(req, res){
     usuarioController.listar(req, res)
 })
 
+router.get("/listarTipo", function(req, res){
+    usuarioController.listarPorTipo(req, res)
+})
+
 module.exports = router;

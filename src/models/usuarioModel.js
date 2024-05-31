@@ -32,10 +32,26 @@ function listar(idUsuario){
     return database.executar(sqlInstruction)
 }
 
+function listarPorTipo(){
+    var sqlInstruction = `SELECT DISTINCT (SELECT COUNT(*) FROM usuario
+    WHERE fkTipoUsuario = 1) AS programador,
+    (SELECT count(*) FROM usuario
+    WHERE fkTipoUsuario = 2) AS modelador,
+    (SELECT COUNT(*) FROM usuario
+    WHERE fkTipoUsuario = 3) AS musico,
+    (SELECT COUNT(*) FROM usuario
+    WHERE fkTipoUsuario = 4) AS designer FROM usuario;`
+
+    console.log("Executando a instrução sql", sqlInstruction)
+
+    return database.executar(sqlInstruction)
+}
+
 module.exports ={
     autenticar, 
     cadastrar,
     definirTipo,
-    listar
+    listar,
+    listarPorTipo
 }
 
