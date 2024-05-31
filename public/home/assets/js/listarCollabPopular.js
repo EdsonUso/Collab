@@ -101,11 +101,11 @@ fetch("../collab/popular", {
                     boxCollab.appendChild(nameCollab);
 
                     output.appendChild(boxCollab);
+
                 }
             });
         });
     });
-})
-.catch(function (erro){
-    console.log("Houve um erro ao fazer a listagem", erro);
+}).catch(function (erro){
+    console.log("Houve um erro ao fazer a listagem", erro); 
 });

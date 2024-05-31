@@ -834,7 +834,6 @@ input[type="checkbox"]:checked + label .overlay {
   color: var(--font-title-color);
   font-weight: 300;
   justify-content: flex-start;
-  background: rgba(181, 123, 69, 0.62);
   border-radius: 0px 0px 0px 0px;
 }
 
@@ -871,7 +870,6 @@ input[type="checkbox"]:checked + label .overlay {
 
 .box-desc-project {
   width: 100%;
-  background-color: rgba(181, 123, 69, 0.62);
 }
 
 .box-desc-project .box-collab {

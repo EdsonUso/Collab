@@ -45,7 +45,6 @@ app.use("/collab", collabRouter);
 app.use("/projeto", projetoRouter);
 app.use("/pub", pubRouter);
 
-
 app.listen(PORTA_APP, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
