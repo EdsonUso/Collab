@@ -26,28 +26,36 @@ function listar(req, res){
 }
 
 function curtir(req, res) {
-    var id = req.params.id; // Pega o ID da URL
+    var id = req.params.id; 
+    console.log(`Recebido pedido para curtir a publicação com ID: ${id}`);
+
     pubModel.curtir(id)
         .then(resultado => {
+            console.log("Resultado da operação de curtir:", resultado);
             res.status(200).json({ mensagem: "Curtida incrementada com sucesso!", resultado });
         })
         .catch(erro => {
-            console.error(erro);
+            console.error("Erro ao incrementar curtida:", erro);
             res.status(500).json({ mensagem: "Erro ao incrementar curtida", erro });
         });
 }
 
-function descurtir(req, res){
+
+function descurtir(req, res) {
     var id = req.params.id;
+    console.log(`Recebido pedido para descurtir a publicação com ID: ${id}`);
+
     pubModel.descurtir(id)
-    .then(resultado => {
-        res.status(200).json({ mensagem: "Curtida incrementada com sucesso!", resultado });
-    })
-    .catch(erro => {
-        console.error(erro);
-        res.status(500).json({ mensagem: "Erro ao incrementar curtida", erro });
-    });
+        .then(resultado => {
+            console.log("Resultado da operação de descurtir:", resultado);
+            res.status(200).json({ mensagem: "Curtida decrementada com sucesso!", resultado });
+        })
+        .catch(erro => {
+            console.error("Erro ao decrementar curtida:", erro);
+            res.status(500).json({ mensagem: "Erro ao decrementar curtida", erro });
+        });
 }
+
 
 
 

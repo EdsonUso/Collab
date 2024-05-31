@@ -12,4 +12,8 @@ router.post("/listar", function(req, res){
     collabController.listar(req, res)
 })
 
+router.get("/popular", function(req, res){
+    collabController.listarPopular(req, res)
+})
+
 module.exports = router;

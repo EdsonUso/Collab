@@ -1,13 +1,35 @@
 //Função para detecção do tema
+function detectionColor() {
+    var theme = "dark" //padrão
+
+
+    if (localStorage.getItem("theme")) {
+        if (localStorage.getItem("theme") == "light") {
+            theme = "light";
+        }
+    } else if (!window.matchMedia) {
+        return false;
+    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+        theme = "light"
+    }
+
+    if (theme == "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+    }
+}
+//FIM DA FUNÇÃO DETECÇÃO DE CORES========================================================================
+//CHAMADA DA FUNÇÃO DETECÇÃO DE CORES====================================================================
+detectionColor();
+
+user_name_home.innerHTML = sessionStorage.NOME_USUARIO
 
 
 function listarPosts() {
-
     fetch("../pub/listar", {
         method: "GET",
     }).then(resposta => {
         resposta.json().then((listaPubs) => {
-            console.log(listaPubs)
+            console.log(listaPubs);
             listaPubs.forEach(pub => {
                 const containerPost = document.createElement('div');
                 containerPost.classList.add('container-post');
@@ -24,7 +46,7 @@ function listarPosts() {
                 const imgPostPerfil = document.createElement('div');
                 imgPostPerfil.classList.add('img-post-perfil');
                 const imgPerfil = document.createElement('img');
-                imgPerfil.src = '';
+                imgPerfil.src = `../data-images/${pub.foto}`;
                 imgPerfil.alt = '';
                 imgPostPerfil.appendChild(imgPerfil);
 
@@ -85,7 +107,8 @@ function listarPosts() {
                 likeDiv.classList.add('like');
                 const iLike = document.createElement('i');
                 iLike.classList.add('far', 'fa-star');
-                iLike.id = 'post_like';
+                iLike.dataset.postId = pub.id; // Adicionando data attribute
+                iLike.id = `post_like_${pub.id}`; // Adicionando ID único
                 likeDiv.appendChild(iLike);
 
                 interactionPost.appendChild(likeDiv);
@@ -106,82 +129,62 @@ function listarPosts() {
                 // Adiciona o post ao contêiner na página
                 document.getElementById('feedView').appendChild(containerPost);
 
-                pegarEstrelas(pub.id);
+                pegarEstrelas(pub.id); // Chama pegarEstrelas com o ID da publicação
 
-            })
-        })
-    }
-
-    )
-
+            });
+        });
+    });
 }
-
-let stars;
 
 function pegarEstrelas(ref) {
-    stars = document.querySelectorAll('#post_like');
-    console.log("stars", stars)
+    const likeButton = document.querySelector(`#post_like_${ref}`);
+    console.log("likeButton", likeButton);
 
-    starsClick(ref);
+    starsClick(likeButton, ref);
+
+    console.log(likeButton);
 }
 
-
-function detectionColor() {
-    var theme = "dark" //padrão
-
-
-    if (localStorage.getItem("theme")) {
-        if (localStorage.getItem("theme") == "light") {
-            theme = "light";
-        }
-    } else if (!window.matchMedia) {
-        return false;
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-        theme = "light"
-    }
-
-    if (theme == "light") {
-        document.documentElement.setAttribute("data-theme", "light");
-    }
-}
-//FIM DA FUNÇÃO DETECÇÃO DE CORES========================================================================
-//CHAMADA DA FUNÇÃO DETECÇÃO DE CORES====================================================================
-detectionColor();
 
 let isChecked = false;
 
-localStorage.LIKE_POST = isChecked;
-function starsClick(ref) {
-    stars.forEach(like => {
-        like.addEventListener('click', () => {
-            isChecked = !isChecked
-            if (isChecked) {
-                like.classList.remove('far');
-                like.classList.add('fas');
+function starsClick(likeButton, ref) {
+    likeButton.addEventListener('click', () => {
+        isChecked = !isChecked;
+        const postId = likeButton.dataset.postId;
 
-                fetch(`../pub/curtir/${ref}`, {
-                    method: "PUT"
-                }).then(resposta =>{
-                    console.log(resposta)
-                }).catch(erro =>{
-                    console.log("Houve um erro ao cadastrar curtida", erro)
-                })
-            } else {
-                like.classList.remove('fas');
-                like.classList.add('far');
+        if (isChecked) {
+            likeButton.classList.remove('far');
+            likeButton.classList.add('fas');
 
-                fetch(`../pub/descurtir/${ref}`,{
-                    method: "PUT"
-                }).then(resposta =>{
-                    console.log(resposta)
-                }).catch(erro => {
-                    console.log("Houve um erro ao descurtir", erro)
-                })
-            }
+            fetch(`../pub/curtir/${postId}`, {
+                method: "PUT"
+            }).then(resposta => {
+                console.log(resposta);
+                return resposta.json();
+            }).then(data => {
+                console.log("Resposta da API ao curtir:", data);
+            }).catch(erro => {
+                console.log("Houve um erro ao cadastrar curtida", erro);
+            });
+        } else {
+            likeButton.classList.remove('fas');
+            likeButton.classList.add('far');
 
-        })
-    })
+            fetch(`../pub/descurtir/${postId}`, {
+                method: "PUT"
+            }).then(resposta => {
+                console.log(resposta);
+                return resposta.json();
+            }).then(data => {
+                console.log("Resposta da API ao descurtir:", data);
+            }).catch(erro => {
+                console.log("Houve um erro ao descurtir", erro);
+            });
+        }
+    });
 }
+
 
 
 let projectChecked = false;

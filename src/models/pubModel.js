@@ -19,6 +19,7 @@ function listar(){
     p.imgPub, 
     p.dtCriacao, 
     c.nome,
+    c.foto,
     TIMESTAMPDIFF(MINUTE, p.dtCriacao, NOW()) AS minutos
 FROM 
     publicacao AS p

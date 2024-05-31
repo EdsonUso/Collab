@@ -444,12 +444,10 @@ input[type="checkbox"]:checked + label .overlay {
   border-bottom: solid 1px var(--line);
 }
 
-.perfil {
+.perfil { 
   padding-left: 20px;
   display: flex;
-  padding-left: 20px;
-  display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 61%;
   align-items: center;
   margin-bottom: 13px;
@@ -741,13 +739,15 @@ input[type="checkbox"]:checked + label .overlay {
 }
 
 .container-post .img-post-perfil {
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   object-fit: cover;
 }
 
 .container-post .img-post-perfil img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -820,6 +820,10 @@ input[type="checkbox"]:checked + label .overlay {
   width: 20vw;
   border-radius: 12px;
   padding-bottom: 20px;
+}
+
+.titulo-most-popular{
+  color: var(--font-title-color);
 }
 
 .box-most-project {
@@ -910,6 +914,12 @@ input[type="checkbox"]:checked + label .overlay {
   width: 34vw;
   height: 38vh;
   background-color: var(--line);
+  border-radius: 15px;
+}
+.game-cover-upload img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 15px;
 }
 

@@ -62,9 +62,9 @@
     <!--MODAL PARA CRIAR PROJETO-->
     <dialog class="modal-criar-collab" id="modalCreateProject">
         <div class="game-info">
-            <div class="game-cover-upload">
+            <div class="game-cover-upload" id="fotoProjectModal">
                 <label for="gameCover">Adicione a capa do seu jogo</label>
-                <input type="file" id="gameCover" name="gameCover">
+                <input type="file" id="gameCover" style="display: none;" name="gameCover">
             </div>
 
             <div class="form-game">
@@ -118,7 +118,7 @@
                         <div class="img-perfil">
                             <img src="assets/modal-images/Cuphead.jpg" alt="" class="img-perfil-img">
                         </div>
-                        <span class="nome-perfil">Edson Gabriel</span>
+                        <span class="nome-perfil" id="user_name_home">Edson Gabriel</span>
                     </div>
                     <div class="novo-projeto">
                         <div class="img-projeto">
@@ -132,25 +132,7 @@
 
                 <div class="area-projetos-recentes">
                     <p class="titulo">Jogos Recentes</p>
-                    <div class="area-projetos">
-                        <div class="projeto">
-                            <div class="img-projeto">
-                                <img src="assets/modal-images/Inside.png" alt="" class="img-projeto-img">
-                            </div>
-                            <span class="nome-projeto">For the Flower</span>
-                        </div>
-                        <div class="projeto">
-                            <div class="img-projeto">
-                                <img src="assets/modal-images/Inside.png" alt="" class="img-projeto-img">
-                            </div>
-                            <span class="nome-projeto">For the Flower</span>
-                        </div>
-                        <div class="projeto">
-                            <div class="img-projeto">
-                                <img src="assets/modal-images/Inside.png" alt="" class="img-projeto-img">
-                            </div>
-                            <span class="nome-projeto">For the Flower</span>
-                        </div>
+                    <div class="area-projetos" id="showProjects">
                     </div>
                 </div>
 
@@ -274,7 +256,7 @@
         <div class="area-most-popular">
             <div class="container-most-popular">
                 <div class="titulo-most-popular">
-                    <p>Jogos em alta</p>
+                    <p>Collabs em alta</p>
                 </div>
 
                 <div class="box-most-project">
@@ -322,6 +304,7 @@
     <script src="assets/js/modalProject.js"></script>
     <script src="assets/js/showCollabs.js"></script>
     <script src="assets/js/modalPost.js"></script>
+    <script src="assets/js/showProjects.js"></script>
 </body>
 
 </html>

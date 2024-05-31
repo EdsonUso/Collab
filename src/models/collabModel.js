@@ -22,9 +22,29 @@ function listar(idUsuario){
     
 }
 
-
+function listarPopular(){
+    var sqlInstruction = `SELECT 
+    c.nome AS nomeCollab,
+    c.foto AS fotoCollab,
+    (SELECT p.nome 
+     FROM projeto p 
+     WHERE p.fkCollab = c.id 
+     ORDER BY p.id DESC 
+     LIMIT 1) AS nomeUltimoProjeto,
+    SUM(pub.curtida) AS totalCurtidas
+FROM 
+    collab c
+JOIN 
+    publicacao pub ON c.id = pub.fkCollab
+GROUP BY 
+    c.id, c.foto
+ORDER BY 
+    totalCurtidas DESC
+LIMIT 4`
+}
 
 module.exports = {
     cadastrar,
-    listar
+    listar,
+    listarPopular
 }
