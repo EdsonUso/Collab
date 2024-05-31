@@ -56,6 +56,13 @@ function descurtir(req, res) {
         });
 }
 
+function listarPeriodo(req, res){
+    pubModel.listarPeriodo().then(resultado =>{
+        res.status(200).json(resultado)
+    }
+
+    )
+}
 
 
 
@@ -63,5 +70,6 @@ module.exports = {
     cadastrar,
     listar,
     curtir,
-    descurtir
+    descurtir,
+    listarPeriodo
 }

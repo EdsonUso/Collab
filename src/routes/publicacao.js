@@ -21,6 +21,9 @@ router.put('/curtir/:id', function(req, res){
 router.put('/descurtir/:id', function(req, res){
   pubController.descurtir(req, res)
 })
+router.get('/periodo', function(req, res){
+  pubController.listarPeriodo(req, res)
+})
 
 
 module.exports = router;

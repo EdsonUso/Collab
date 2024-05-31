@@ -36,7 +36,8 @@ function listarPopular() {
      WHERE p.fkCollab = c.id
      ORDER BY p.id DESC
      LIMIT 1) AS fotoUltimoProjeto,
-    SUM(pub.curtida) AS totalCurtidas
+    SUM(pub.curtida) AS totalCurtidas,
+    NOW() AS momento
 FROM
     collab c
 JOIN

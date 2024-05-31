@@ -20,7 +20,7 @@ body {
 }
 
 .chart-container {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -53,7 +53,9 @@ body {
 .circle-chart {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .line-chart {

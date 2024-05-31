@@ -52,7 +52,18 @@ function descurtir(id){
     return database.executar(sqlInstruction)
 }
 
+function listarPeriodo(){
+    var sqlInstruction = `SELECT
+    COUNT(*) AS total,
+    (SELECT COUNT(*) FROM publicacao WHERE YEARWEEK(dtCriacao) = YEARWEEK(CURRENT_DATE())) AS semana,
+    (SELECT COUNT(*) FROM publicacao WHERE MONTH(dtCriacao) = MONTH(CURRENT_DATE()) AND YEAR(dtCriacao) = YEAR(CURRENT_DATE())) AS mes,
+    (SELECT COUNT(*) FROM publicacao WHERE DATE(dtCriacao) = DATE(CURRENT_DATE())) AS dia
+     FROM publicacao;`
 
+     console.log("Executando a instrução sql", sqlInstruction)
+
+     return database.executar(sqlInstruction)
+}
 
 
 
@@ -60,5 +71,6 @@ module.exports = {
     cadastrar,
     listar,
     curtir,
-    descurtir
+    descurtir,
+    listarPeriodo
 }
