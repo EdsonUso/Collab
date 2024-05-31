@@ -52,8 +52,9 @@ function listarPopular(req, res){
         }
     ).catch(erro =>{
         console.log(erro.sqlMessage)
+        res.status(500).json(erro.sqlMessage)
     })
-    res.status(500).json(erro.sqlMessage)
+   
 }
 
 
