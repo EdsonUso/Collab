@@ -72,7 +72,8 @@ create table jogoInspiradorUsuario(
 
 CREATE TABLE collab(
 	id INT PRIMARY KEY AUTO_INCREMENT, 
-    nome VARCHAR(45)
+    nome VARCHAR(45),
+    foto VARCHAR(255)
 );
 
 INSERT INTO usuario values(
@@ -85,6 +86,7 @@ CREATE TABLE projeto(
     CONSTRAINT pkComposta PRIMARY KEY(id, fkCollab),
     nome VARCHAR(45),
     descricao VARCHAR(200),
+    foto VARCHAR(255),
     CONSTRAINT projetoCollab FOREIGN KEY(fkCollab) REFERENCES collab(id)
 );
 
@@ -101,10 +103,10 @@ CREATE TABLE membrosCollab(
 CREATE TABLE publicacao(
 	id INT AUTO_INCREMENT, 
     fkCollab INT, 
-    fkProjeto INT, 
-    CONSTRAINT pkComposta PRIMARY KEY(id, fkCollab, fkProjeto), 
+    CONSTRAINT pkComposta PRIMARY KEY(id, fkCollab), 
     descricao VARCHAR(130), 
     imgPub VARCHAR(255),
+    curtida INT DEFAULT 0, 
     CONSTRAINT publicacaoCollab FOREIGN KEY (fkCollab) REFERENCES collab(id),
-    CONSTRAINT publicacaoProjeto FOREIGN KEY (fkProjeto) REFERENCES projeto(id)
+    dtCriacao DATETIME
 );

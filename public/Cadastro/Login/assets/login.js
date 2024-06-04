@@ -19,7 +19,7 @@ function login() {
             senhaServer: senhaVar
         })
     }).then(function (resposta) {
-        console.log("HERE'S IS THEN()!")
+        console.log("HERE'S THEN()!")
 
         if (resposta.ok) {
             resposta.json().then(json => {

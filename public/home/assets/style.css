@@ -485,6 +485,8 @@ input[type="checkbox"]:checked + label .overlay {
 
 .img-projeto-img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 12px;
 }
 
@@ -536,7 +538,6 @@ input[type="checkbox"]:checked + label .overlay {
 
 .area-projetos {
   height: 100%;
-  justify-content: space-around;
   display: flex;
   flex-direction: column;
 }
@@ -544,7 +545,7 @@ input[type="checkbox"]:checked + label .overlay {
 .projeto {
   padding-left: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 61%;
   align-items: center;
   color: var(--font-title-color);

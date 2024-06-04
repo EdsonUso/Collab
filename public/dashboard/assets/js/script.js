@@ -48,7 +48,6 @@ function showCollabsPopular(collabs) {
                     lineChart.data.datasets[index].data.shift();
                 }
             } else {
-                // Criar novo dataset se não existir
                 const newDataset = {
                     label: collab.nomeCollab,
                     data: [collab.totalCurtidas],
@@ -131,8 +130,8 @@ const doughnutData = {
         data: dataType,
         borderColor: 'transparent',
         backgroundColor: [
-            'rgb(129, 166, 135)',
             'rgb(41, 55, 64)',
+            'rgb(129, 166, 135)',
             'rgb(255,255,255)',
             'rgb(151,211,207)',
         ],

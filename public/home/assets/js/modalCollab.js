@@ -41,7 +41,7 @@ button.addEventListener('click', () => {
                     modalMembros.innerHTML +=
                         `<div class="box-member-add" id="${index}">
                         <div class="img-member" for="collab">
-                            <img src="assets/modal-images/${usuario.nome}.png" alt="" class="img-member-img">
+                            <img src="assets/feed-images/Frame.png" alt="" class="img-member-img">
                         </div>
                         <span class="member-name-add" id="span_member">${usuario.nome}</span>
                     </div>`;
