@@ -19,14 +19,13 @@ function cadastrar(req, res) {
         });
 }
 
+var teste = require("./teste")
 
 function listar(req, res){
     pubModel.listar().then(resultado =>{
         res.status(200).json(resultado)
     })
 }
-
-
 
 function curtir(req, res) {
     var id = req.params.id; 

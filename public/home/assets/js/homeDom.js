@@ -17,6 +17,9 @@ function detectionColor() {
         document.documentElement.setAttribute("data-theme", "light");
     }
 }
+
+
+
 //FIM DA FUNÇÃO DETECÇÃO DE CORES========================================================================
 //CHAMADA DA FUNÇÃO DETECÇÃO DE CORES====================================================================
 detectionColor();
